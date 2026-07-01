@@ -1,0 +1,204 @@
+aid: digits-com
+url: https://raw.githubusercontent.com/api-evangelist/digits-com/refs/heads/main/apis.yml
+name: Digits
+kind: company
+description: Digits is an AI-native accounting and bookkeeping platform for startups
+  and their accountants, built around the Autonomous General Ledger (AGL) that
+  auto-books the majority of transactions in real time. The Digits Connect API opens
+  the AGL programmatically over REST with OAuth 2.0, letting partners send raw
+  transaction, party, and dimension data for AI categorization and vendor
+  enrichment, and read back ledger entries and financial statements. Digits also
+  publishes an MCP server for AI agents (ChatGPT, Claude) to query the ledger.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Accounting
+- Bookkeeping
+- Finance
+- General Ledger
+- AI
+- FinTech
+created: '2026-07-01'
+modified: '2026-07-01'
+specificationVersion: '0.19'
+apis:
+- aid: digits-com:digits-com-transactions-api
+  name: Digits Transactions API
+  tags:
+  - Transactions
+  - Ledger
+  - Journal Entries
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.digits.com
+  baseURL: https://connect.digits.com/v1
+  properties:
+  - url: https://developer.digits.com
+    type: Documentation
+  - url: openapi/digits-com-openapi.yml
+    type: OpenAPI
+  - url: collections/digits-com.postman_collection.json
+    type: PostmanCollection
+  - url: collections/digits-com.opencollection.json
+    type: OpenCollection
+  description: Read AI-categorized ledger transactions and journal entries, query
+    entries by filter, and retrieve individual transactions from the Autonomous
+    General Ledger (LedgerTransactionService entries, queryEntries, getTransaction).
+- aid: digits-com:digits-com-source-sync-api
+  name: Digits Source Sync API
+  tags:
+  - Ingestion
+  - Sync
+  - Idempotency
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.digits.com
+  baseURL: https://connect.digits.com/v1
+  properties:
+  - url: https://developer.digits.com
+    type: Documentation
+  - url: openapi/digits-com-openapi.yml
+    type: OpenAPI
+  - url: collections/digits-com.postman_collection.json
+    type: PostmanCollection
+  description: Push raw source data - transactions, parties, products, departments,
+    locations, and projects - into the AGL for AI research, enrichment, and
+    categorization. Idempotence and deduplication are handled via the external_id
+    field (SourceTransactionService, SourcePartyService, and related sync
+    endpoints).
+- aid: digits-com:digits-com-parties-api
+  name: Digits Parties API
+  tags:
+  - Parties
+  - Vendors
+  - Customers
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.digits.com
+  baseURL: https://connect.digits.com/v1
+  properties:
+  - url: https://developer.digits.com
+    type: Documentation
+  - url: openapi/digits-com-openapi.yml
+    type: OpenAPI
+  description: List and retrieve parties - the vendors, suppliers, customers, and
+    other business relationships that Digits hydrates and enriches from
+    transaction data (LedgerPartyService get and list).
+- aid: digits-com:digits-com-chart-of-accounts-api
+  name: Digits Chart of Accounts API
+  tags:
+  - Chart of Accounts
+  - Categories
+  - Dimensions
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.digits.com
+  baseURL: https://connect.digits.com/v1
+  properties:
+  - url: https://developer.digits.com
+    type: Documentation
+  - url: openapi/digits-com-openapi.yml
+    type: OpenAPI
+  description: List and retrieve ledger categories (chart of accounts) plus the
+    dimensional accounting axes - departments, locations, and projects - used to
+    classify financial data (LedgerCategoryService, LedgerDepartmentService,
+    LedgerLocationService, LedgerProjectService).
+- aid: digits-com:digits-com-financial-statements-api
+  name: Digits Financial Statements API
+  tags:
+  - Reports
+  - Financial Statements
+  - Balance Sheet
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.digits.com
+  baseURL: https://connect.digits.com/v1
+  properties:
+  - url: https://developer.digits.com
+    type: Documentation
+  - url: openapi/digits-com-openapi.yml
+    type: OpenAPI
+  description: Generate core financial statements directly from the ledger -
+    Balance Sheet, Profit and Loss, Cash Flow, Trial Balance, A/P Aging, and A/R
+    Aging (LedgerStatementsService), plus ledger summaries
+    (LedgerSummaryService.summarize).
+- aid: digits-com:digits-com-connections-api
+  name: Digits Connections API
+  tags:
+  - Connections
+  - Data Sources
+  - Integrations
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.digits.com
+  baseURL: https://connect.digits.com/v1
+  properties:
+  - url: https://developer.digits.com
+    type: Documentation
+  - url: openapi/digits-com-openapi.yml
+    type: OpenAPI
+  description: List and sync the connected data sources feeding the ledger,
+    covering the 12,000+ financial-institution and payments integrations Digits
+    ingests from (ConnectionSourceService list and sync).
+- aid: digits-com:digits-com-organizations-api
+  name: Digits Organizations API
+  tags:
+  - Organizations
+  - Clients
+  - Firms
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.digits.com
+  baseURL: https://connect.digits.com/v1
+  properties:
+  - url: https://developer.digits.com
+    type: Documentation
+  - url: openapi/digits-com-openapi.yml
+    type: OpenAPI
+  description: Manage accounting-firm organizations and their client books,
+    entities, and employees, including bulk operations for onboarding clients at
+    scale (OrganizationService, OrganizationClientService, ClientEntityService,
+    ClientEmployeeService).
+- aid: digits-com:digits-com-webhooks-api
+  name: Digits Webhooks API
+  tags:
+  - Webhooks
+  - Events
+  - Notifications
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.digits.com
+  baseURL: https://connect.digits.com/v1
+  properties:
+  - url: https://developer.digits.com
+    type: Documentation
+  description: Receive event notifications from Digits at a configured webhook
+    endpoint; Digits POSTs a JSON event body and expects a 2xx acknowledgment
+    (WebhookService.receiveWebhookEvent).
+- aid: digits-com:digits-com-mcp-server
+  name: Digits MCP Server
+  tags:
+  - MCP
+  - AI Agents
+  - Model Context Protocol
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.digits.com
+  baseURL: https://digits.com
+  properties:
+  - url: https://developer.digits.com
+    type: Documentation
+  - url: https://digits.com/.well-known/mcp/server.json
+    type: MCP
+  description: Model Context Protocol server that lets AI clients like ChatGPT and
+    Claude connect directly to Digits to query the ledger in natural language.
+    Discovery is published as an MCP Server Card at
+    /.well-known/mcp/server.json (registry schema SEP-1649).
+common:
+- type: GitHubOrganization
+  url: https://github.com/digits
+- type: LinkedIn
+  url: https://www.linkedin.com/company/digits-financial
+- type: Website
+  url: https://digits.com
+- type: Documentation
+  url: https://developer.digits.com
+- type: Plans
+  url: plans/digits-com-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/digits-com-rate-limits.yml
+- type: FinOps
+  url: finops/digits-com-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

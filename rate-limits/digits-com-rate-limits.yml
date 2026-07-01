@@ -1,0 +1,65 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Digits
+providerId: digits-com
+created: '2026-07-01'
+modified: '2026-07-01'
+reconciled: false
+tags:
+- Accounting
+- Bookkeeping
+- Finance
+- General Ledger
+- AI
+- FinTech
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  The Digits Connect API implements rate limiting to ensure fair usage and
+  maintain service quality. Per Digits, these limits exist to prevent abuse and
+  are explicitly not tied to monetization; the company has stated limits can be
+  raised for legitimate use cases. Specific numeric per-endpoint thresholds are
+  not published in the reviewed documentation and are not reconciled in this
+  artifact.
+notes: >-
+  Verify concrete numeric limits, retry headers, and burst behavior in the
+  developer.digits.com reference on reconciliation. Rate limits at launch are
+  described as generous and abuse-prevention oriented rather than revenue gates.
+sources:
+- https://developer.digits.com
+- https://www.accountingtoday.com/news/digits-launches-free-api
+responseCodes:
+  throttled: 429
+limits:
+- name: Request Rate
+  scope: account
+  metric: requests
+  limit: see provider documentation
+  notes: >-
+    Abuse-prevention rate limit applied per developer account/app; not tied to
+    monetization and raisable for legitimate use.
+- name: Source Sync Volume
+  scope: account
+  metric: records
+  limit: see provider documentation
+  notes: >-
+    Bulk source sync endpoints accept batches; idempotence/dedup via
+    external_id avoids double-counting on retries.
+policies:
+- name: Fair Use
+  description: >-
+    Limits are designed for fair usage and service quality, not revenue
+    gating; contact Digits to raise limits for legitimate high-volume use.
+- name: Idempotent Retries
+  description: >-
+    Retries of source sync calls are safe because idempotence and
+    deduplication are handled via the external_id field.
+- name: Backoff Strategy
+  description: >-
+    Clients should implement exponential backoff with jitter and honor
+    Retry-After on 429 responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

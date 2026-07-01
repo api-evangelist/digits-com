@@ -1,0 +1,89 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Digits
+providerId: digits-com
+created: '2026-07-01'
+modified: '2026-07-01'
+reconciled: false
+tags:
+- Accounting
+- Bookkeeping
+- Finance
+- General Ledger
+- AI
+- FinTech
+- Plans
+description: >-
+  Two distinct pricing surfaces exist for Digits. (1) The Digits Connect API
+  itself is free to developers and partners - no partner fees, no usage
+  paywalls, and no marketplace lock-ins - per Digits' launch announcement; rate
+  limits exist to prevent abuse but are not tied to monetization. (2) The Digits
+  accounting/bookkeeping product is a paid SaaS subscription sold to startups
+  and accounting firms; published, reconciled seat/tier pricing is not
+  represented here and should be confirmed on digits.com/pricing.
+notes: >-
+  API access is explicitly free at launch. Product subscription pricing is not
+  reconciled in this artifact - verify current tiers on the Digits pricing page.
+sources:
+- https://developer.digits.com
+- https://digits.com
+- https://www.accountingtoday.com/news/digits-launches-free-api
+- https://www.cpapracticeadvisor.com/2025/10/28/digits-unveils-connect-api-for-faster-ai-powered-integrations/171802/
+plans:
+- id: digits-com-connect-api-free
+  name: Connect API (Free)
+  type: free
+  description: >-
+    Free programmatic access to the Autonomous General Ledger via the Digits
+    Connect API. No partner fees, usage paywalls, or marketplace lock-ins.
+    Rate limits apply to prevent abuse and can be raised for legitimate use.
+  entries:
+  - label: API Requests
+    name: api_requests
+    type: free
+    metric: requests
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: free
+    userMultiplied: false
+  elements:
+  - name: Transactions
+  - name: Source Sync
+  - name: Parties
+  - name: Chart of Accounts
+  - name: Financial Statements
+  - name: Connections
+  - name: Organizations
+  - name: Webhooks
+  - name: MCP Server
+- id: digits-com-product-subscription
+  name: Digits Product Subscription
+  type: subscription
+  description: >-
+    Paid SaaS subscription to the Digits accounting/bookkeeping product for
+    startups and accounting firms. Published tier and seat pricing is not
+    reconciled here; confirm on the Digits pricing page.
+  entries:
+  - label: Subscription
+    name: subscription
+    type: recurring
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: see digits.com/pricing
+    userMultiplied: false
+  elements:
+  - name: Real-time Bookkeeping
+  - name: AI Bill Pay
+  - name: Invoicing
+  - name: Financial Reporting
+  - name: Agentic Close
+  - name: Ask Digits
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

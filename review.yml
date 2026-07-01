@@ -1,0 +1,81 @@
+aid: digits-com
+name: Digits
+review:
+  question: Does Digits expose a documented public first-party API?
+  answer: true
+  date: '2026-07-01'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    Yes. Although Digits is primarily an AI-native accounting/bookkeeping
+    product, it launched a genuine, documented public first-party API - the
+    Digits Connect API - in late 2025, opening the Autonomous General Ledger
+    (AGL) programmatically. This is not an invented surface: there is a live
+    developer portal at https://developer.digits.com with an interactive
+    reference, an OAuth 2.0 authorization-code flow, cursor-based pagination,
+    idempotent source-sync endpoints, webhooks, and a published MCP server for
+    AI agents. The API is free (no partner fees, usage paywalls, or marketplace
+    lock-ins). Media coverage (Accounting Today, CPA Practice Advisor) and
+    Digits' own X/LinkedIn announcements corroborate the launch.
+
+    Verified corroborating facts:
+    - github.com/digits is the real Digits company org (blog https://digits.com,
+      bio "Accounting, reimagined.", twitter @digits, 6 public repos including
+      protoc-gen-openapi and mcp-skills). This matches the historical note that
+      Digits published open-source protobuf/gRPC-adjacent tooling; the org is
+      included in apis.yml as a verified GitHubOrganization.
+    - digits.com/openapi.json exists but describes only marketing-site / MCP
+      discovery metadata (llms.txt, sitemap.xml, .well-known/mcp), NOT the
+      Connect API. The real Connect API base URL is https://connect.digits.com/v1.
+  apiAvailability:
+    publicFirstPartyApi: true
+    apiName: Digits Connect API
+    status: launched (preview for app submission at announcement; developer access live)
+    baseURL: https://connect.digits.com/v1
+    docs: https://developer.digits.com
+    auth: OAuth 2.0 (authorization code grant)
+    pricing: free (no partner fees, usage paywalls, or marketplace lock-ins)
+    pagination: cursor-based on list endpoints
+    idempotency: external_id field on source sync endpoints
+    webhooks: true
+    mcpServer: https://digits.com/.well-known/mcp/server.json
+  resourcesConfirmed:
+    - LedgerTransactionService (entries, queryEntries, getTransaction)
+    - SourceTransactionService / SourcePartyService / SourceProductService (sync)
+    - LedgerPartyService (get, list)
+    - LedgerCategoryService (chart of accounts)
+    - LedgerDepartmentService / LedgerLocationService / LedgerProjectService (dimensions)
+    - LedgerStatementsService (balanceSheet, profitAndLoss, cashFlow, trialBalance, apAging, arAging)
+    - LedgerSummaryService (summarize)
+    - ConnectionSourceService (list, sync)
+    - OrganizationService / OrganizationClientService / ClientEntityService / ClientEmployeeService
+    - WebhookService (receiveWebhookEvent)
+  honestyNotes: |
+    The OpenAPI document in this repo (openapi/digits-com-openapi.yml) is a
+    hand-authored, honest representation of the documented Connect API service
+    methods, with REST paths derived from the reference's service/method names.
+    It is explicitly NOT the vendor's machine-generated spec and is marked as
+    such. Request/response schemas are summarized, not exhaustive. No endpoints
+    were invented beyond the services listed in the public developer reference.
+sources:
+  - url: https://developer.digits.com
+    type: Documentation
+    note: Live developer portal - Connect API reference, OAuth, sandbox, SDKs, MCP.
+  - url: https://developer.digits.com/llms.txt
+    type: Documentation
+    note: Enumerates every Connect API service/method reference doc, pagination, idempotency, webhooks.
+  - url: https://digits.com
+    type: Website
+    note: Product site; header links to developer.digits.com; references openapi.json and MCP discovery.
+  - url: https://www.accountingtoday.com/news/digits-launches-free-api
+    type: Article
+    note: Reports the free Digits API launch opening the Autonomous General Ledger.
+  - url: https://www.cpapracticeadvisor.com/2025/10/28/digits-unveils-connect-api-for-faster-ai-powered-integrations/171802/
+    type: Article
+    note: Details Connect API resources and dimensional accounting; preview availability.
+  - url: https://github.com/digits
+    type: GitHubOrganization
+    note: Verified real Digits company org (blog digits.com, twitter @digits).
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

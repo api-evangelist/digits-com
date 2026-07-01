@@ -1,0 +1,337 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Digits Connect API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "accessToken": "{{accessToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Transactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List ledger transaction entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/transactions/entries"
+          },
+          "docs": "Returns categorized ledger entries from the Autonomous General Ledger. Cursor-paginated."
+        },
+        {
+          "info": {
+            "name": "Query ledger transaction entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.digits.com/v1/ledger/transactions/query",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"start_date\": \"2026-01-01\",\n  \"end_date\": \"2026-06-30\"\n}"
+            }
+          },
+          "docs": "Query entries by date range, category, party, or dimension filters."
+        },
+        {
+          "info": {
+            "name": "Get a ledger transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/transactions/{{transactionId}}"
+          },
+          "docs": "Retrieve a single ledger transaction by id."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sync source transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.digits.com/v1/sources/transactions/sync",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"transactions\": [\n    {\n      \"external_id\": \"txn-123\",\n      \"date\": \"2026-06-01\",\n      \"description\": \"Cloud hosting\",\n      \"amount\": { \"amount\": 4200, \"currency_code\": \"USD\" }\n    }\n  ]\n}"
+            }
+          },
+          "docs": "Push raw transactions to the AGL for enrichment and categorization. Idempotent via external_id."
+        },
+        {
+          "info": {
+            "name": "Sync source parties",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.digits.com/v1/sources/parties/sync",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"items\": [ { \"external_id\": \"party-abc\" } ]\n}"
+            }
+          },
+          "docs": "Sync raw party (vendor/customer) data into the AGL."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Parties",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List parties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/parties"
+          },
+          "docs": "List enriched parties (vendors, customers, other relationships)."
+        },
+        {
+          "info": {
+            "name": "Get a party",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/parties/{{partyId}}"
+          },
+          "docs": "Retrieve a single party by id."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Chart of Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List ledger categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/categories"
+          },
+          "docs": "List ledger categories (chart of accounts)."
+        },
+        {
+          "info": {
+            "name": "List departments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/departments"
+          },
+          "docs": "List department dimensions."
+        },
+        {
+          "info": {
+            "name": "List locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/locations"
+          },
+          "docs": "List location dimensions."
+        },
+        {
+          "info": {
+            "name": "List projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/projects"
+          },
+          "docs": "List project dimensions."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Financial Statements",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Balance sheet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/statements/balance-sheet"
+          },
+          "docs": "Generate the balance sheet from the ledger."
+        },
+        {
+          "info": {
+            "name": "Profit and loss",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/statements/profit-and-loss"
+          },
+          "docs": "Generate the profit and loss statement."
+        },
+        {
+          "info": {
+            "name": "Cash flow",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/statements/cash-flow"
+          },
+          "docs": "Generate the cash flow statement."
+        },
+        {
+          "info": {
+            "name": "Trial balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/statements/trial-balance"
+          },
+          "docs": "Generate the trial balance."
+        },
+        {
+          "info": {
+            "name": "A/P aging",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/statements/ap-aging"
+          },
+          "docs": "Accounts payable aging report."
+        },
+        {
+          "info": {
+            "name": "A/R aging",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/statements/ar-aging"
+          },
+          "docs": "Accounts receivable aging report."
+        },
+        {
+          "info": {
+            "name": "Summarize ledger",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.digits.com/v1/ledger/summarize",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Aggregate and summarize ledger data across dimensions and periods."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Connections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List connected sources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/connections/sources"
+          },
+          "docs": "List the connected data sources feeding the ledger."
+        },
+        {
+          "info": {
+            "name": "Sync a connected source",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.digits.com/v1/connections/sources/sync",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Trigger a sync of a connected data source."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Organizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List client books",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/organizations/clients"
+          },
+          "docs": "List an accounting-firm organization's client books."
+        },
+        {
+          "info": {
+            "name": "Create client book",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.digits.com/v1/organizations/clients",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a client book under an organization."
+        }
+      ]
+    }
+  ]
+}

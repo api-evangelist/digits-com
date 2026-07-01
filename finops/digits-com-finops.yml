@@ -1,0 +1,96 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Digits
+providerId: digits-com
+created: '2026-07-01'
+modified: '2026-07-01'
+reconciled: false
+tags:
+- Accounting
+- Bookkeeping
+- Finance
+- General Ledger
+- AI
+- FinTech
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Digits spend. Notably, the Digits Connect API is free (no
+  partner fees, usage paywalls, or marketplace lock-ins), so there is no direct
+  API metering cost to manage - the FinOps concern for API consumers is
+  operational (staying within fair-use rate limits) rather than financial. The
+  billed cost center is the Digits accounting/bookkeeping product subscription
+  sold to startups and firms; that subscription pricing is not reconciled here.
+notes: >-
+  Because API usage is free at launch, there are no usage-based API charges to
+  allocate. Track the product subscription as the primary Digits line item.
+  Confirm subscription rates on the Digits pricing page during reconciliation.
+sources:
+- https://developer.digits.com
+- https://digits.com
+- https://www.accountingtoday.com/news/digits-launches-free-api
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Digits
+serviceCategory: Business Applications
+billingModel:
+  pricingCategory: Subscription-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Purchase
+  - Adjustment
+focusColumns:
+  ServiceName: Digits
+  ServiceCategory: Business Applications
+  ProviderName: Digits
+  PublisherName: Digits
+  InvoiceIssuerName: Digits
+  BillingCurrency: USD
+  ChargeCategory: Purchase
+  PricingCategory: Subscription-Based
+meters:
+- name: api_requests
+  description: >-
+    Connect API requests. Metered by Digits for rate limiting only; not billed
+    (API access is free), so this meter carries no cost dimension.
+  unit: requests
+  aggregation: sum
+  dimensions:
+  - account
+  - endpoint
+- name: product_subscription
+  description: >-
+    Digits accounting/bookkeeping product subscription - the billed component.
+    Rate not reconciled; see digits.com/pricing.
+  unit: subscription
+  aggregation: sum
+  dimensions:
+  - account
+principles:
+- name: Visibility
+  description: >-
+    Track the Digits product subscription as the sole Digits spend line;
+    Connect API usage is free and generates no invoice.
+- name: Allocation
+  description: >-
+    Allocate the subscription to the finance/accounting cost center; tag API
+    apps per integration for operational (not cost) tracking.
+- name: Optimization
+  description: >-
+    Optimize by consolidating integrations onto the free Connect API rather
+    than paid third-party unified-API middleware where feasible.
+- name: Accountability
+  description: >-
+    Assign an owner for the Digits subscription and review seat/tier usage
+    against need periodically.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

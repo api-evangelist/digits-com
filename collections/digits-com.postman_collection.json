@@ -1,0 +1,372 @@
+{
+  "info": {
+    "name": "Digits Connect API",
+    "description": "Digits Connect API - programmatic access to the Autonomous General Ledger (AGL). OAuth 2.0 auth-code flow; base URL https://connect.digits.com/v1. Endpoints derived from the developer.digits.com reference.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      { "key": "accessToken", "value": "{{accessToken}}", "type": "string" },
+      { "key": "tokenType", "value": "Bearer", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://connect.digits.com/v1" },
+    { "key": "transactionId", "value": "" },
+    { "key": "partyId", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Transactions",
+      "item": [
+        {
+          "name": "List ledger transaction entries",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ledger/transactions/entries",
+              "host": ["{{baseUrl}}"],
+              "path": ["ledger", "transactions", "entries"]
+            },
+            "description": "Returns AI-categorized ledger entries. Cursor-paginated."
+          }
+        },
+        {
+          "name": "Query ledger transaction entries",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start_date\": \"2026-01-01\",\n  \"end_date\": \"2026-06-30\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ledger/transactions/query",
+              "host": ["{{baseUrl}}"],
+              "path": ["ledger", "transactions", "query"]
+            },
+            "description": "Query entries by date range, category, party, or dimension filters."
+          }
+        },
+        {
+          "name": "Get a ledger transaction",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ledger/transactions/{{transactionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["ledger", "transactions", "{{transactionId}}"]
+            },
+            "description": "Retrieve a single ledger transaction by id."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Sources",
+      "item": [
+        {
+          "name": "Sync source transactions",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"transactions\": [\n    {\n      \"external_id\": \"txn-123\",\n      \"date\": \"2026-06-01\",\n      \"description\": \"Cloud hosting\",\n      \"amount\": { \"amount\": 4200, \"currency_code\": \"USD\" }\n    }\n  ]\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sources/transactions/sync",
+              "host": ["{{baseUrl}}"],
+              "path": ["sources", "transactions", "sync"]
+            },
+            "description": "Push raw transactions to the AGL for enrichment and categorization. Idempotent via external_id."
+          }
+        },
+        {
+          "name": "Sync source parties",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"items\": [ { \"external_id\": \"party-abc\" } ]\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sources/parties/sync",
+              "host": ["{{baseUrl}}"],
+              "path": ["sources", "parties", "sync"]
+            },
+            "description": "Sync raw party data into the AGL."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Parties",
+      "item": [
+        {
+          "name": "List parties",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ledger/parties",
+              "host": ["{{baseUrl}}"],
+              "path": ["ledger", "parties"]
+            },
+            "description": "List enriched parties (vendors, customers, other relationships)."
+          }
+        },
+        {
+          "name": "Get a party",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ledger/parties/{{partyId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["ledger", "parties", "{{partyId}}"]
+            },
+            "description": "Retrieve a single party by id."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Chart of Accounts",
+      "item": [
+        {
+          "name": "List ledger categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ledger/categories",
+              "host": ["{{baseUrl}}"],
+              "path": ["ledger", "categories"]
+            },
+            "description": "List ledger categories (chart of accounts)."
+          }
+        },
+        {
+          "name": "List departments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ledger/departments",
+              "host": ["{{baseUrl}}"],
+              "path": ["ledger", "departments"]
+            },
+            "description": "List department dimensions."
+          }
+        },
+        {
+          "name": "List locations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ledger/locations",
+              "host": ["{{baseUrl}}"],
+              "path": ["ledger", "locations"]
+            },
+            "description": "List location dimensions."
+          }
+        },
+        {
+          "name": "List projects",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ledger/projects",
+              "host": ["{{baseUrl}}"],
+              "path": ["ledger", "projects"]
+            },
+            "description": "List project dimensions."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Financial Statements",
+      "item": [
+        {
+          "name": "Balance sheet",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ledger/statements/balance-sheet",
+              "host": ["{{baseUrl}}"],
+              "path": ["ledger", "statements", "balance-sheet"]
+            },
+            "description": "Generate the balance sheet from the ledger."
+          }
+        },
+        {
+          "name": "Profit and loss",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ledger/statements/profit-and-loss",
+              "host": ["{{baseUrl}}"],
+              "path": ["ledger", "statements", "profit-and-loss"]
+            },
+            "description": "Generate the profit and loss statement."
+          }
+        },
+        {
+          "name": "Cash flow",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ledger/statements/cash-flow",
+              "host": ["{{baseUrl}}"],
+              "path": ["ledger", "statements", "cash-flow"]
+            },
+            "description": "Generate the cash flow statement."
+          }
+        },
+        {
+          "name": "Trial balance",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ledger/statements/trial-balance",
+              "host": ["{{baseUrl}}"],
+              "path": ["ledger", "statements", "trial-balance"]
+            },
+            "description": "Generate the trial balance."
+          }
+        },
+        {
+          "name": "A/P aging",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ledger/statements/ap-aging",
+              "host": ["{{baseUrl}}"],
+              "path": ["ledger", "statements", "ap-aging"]
+            },
+            "description": "Accounts payable aging report."
+          }
+        },
+        {
+          "name": "A/R aging",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ledger/statements/ar-aging",
+              "host": ["{{baseUrl}}"],
+              "path": ["ledger", "statements", "ar-aging"]
+            },
+            "description": "Accounts receivable aging report."
+          }
+        },
+        {
+          "name": "Summarize ledger",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ledger/summarize",
+              "host": ["{{baseUrl}}"],
+              "path": ["ledger", "summarize"]
+            },
+            "description": "Aggregate and summarize ledger data across dimensions and periods."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Connections",
+      "item": [
+        {
+          "name": "List connected sources",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/connections/sources",
+              "host": ["{{baseUrl}}"],
+              "path": ["connections", "sources"]
+            },
+            "description": "List the connected data sources feeding the ledger."
+          }
+        },
+        {
+          "name": "Sync a connected source",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/connections/sources/sync",
+              "host": ["{{baseUrl}}"],
+              "path": ["connections", "sources", "sync"]
+            },
+            "description": "Trigger a sync of a connected data source."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Organizations",
+      "item": [
+        {
+          "name": "List client books",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/organizations/clients",
+              "host": ["{{baseUrl}}"],
+              "path": ["organizations", "clients"]
+            },
+            "description": "List an accounting-firm organization's client books."
+          }
+        },
+        {
+          "name": "Create client book",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/organizations/clients",
+              "host": ["{{baseUrl}}"],
+              "path": ["organizations", "clients"]
+            },
+            "description": "Create a client book under an organization."
+          }
+        }
+      ]
+    }
+  ]
+}

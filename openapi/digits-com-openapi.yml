@@ -1,0 +1,613 @@
+openapi: 3.1.0
+info:
+  title: Digits Connect API
+  version: 1.0.0
+  description: >-
+    The Digits Connect API provides programmatic access to the Autonomous
+    General Ledger (AGL), Digits' AI-native general ledger. Partners send raw
+    transaction, party, and dimension data via source sync endpoints, where the
+    AGL researches vendors, enriches profiles, and posts fully categorized
+    entries. Read endpoints return ledger transactions, parties, categories
+    (chart of accounts), dimensions, and standard financial statements.
+
+
+    Authentication is OAuth 2.0 (authorization code grant). List endpoints use
+    cursor-based pagination. Source sync endpoints are idempotent and
+    deduplicated via the external_id field.
+
+
+    NOTE (API Evangelist honesty note): Digits does expose a real, documented
+    public first-party API (the Digits Connect API) at
+    https://connect.digits.com/v1 with OAuth 2.0 and an interactive reference at
+    https://developer.digits.com. This document is a hand-authored, honest
+    representation of the documented service methods; it is NOT the vendor's
+    machine-generated OpenAPI. The public https://digits.com/openapi.json file
+    describes only marketing-site/MCP-discovery metadata, not the Connect API.
+    Request/response schemas below are summarized, not exhaustive. Verify exact
+    paths, parameters, and payloads against developer.digits.com.
+  contact:
+    name: Digits Developer
+    url: https://developer.digits.com
+  license:
+    name: Proprietary
+    url: https://digits.com
+servers:
+- url: https://connect.digits.com/v1
+  description: Digits Connect API production base URL
+security:
+- OAuth2: []
+tags:
+- name: Transactions
+  description: Read AI-categorized ledger transactions and journal entries.
+- name: Sources
+  description: Push raw source data into the AGL for enrichment and categorization.
+- name: Parties
+  description: Vendors, suppliers, customers, and other business relationships.
+- name: Chart of Accounts
+  description: Ledger categories and dimensional axes (departments, locations, projects).
+- name: Financial Statements
+  description: Balance Sheet, P&L, Cash Flow, Trial Balance, aging reports, and summaries.
+- name: Connections
+  description: Connected data sources feeding the ledger.
+- name: Organizations
+  description: Accounting-firm organizations, clients, entities, and employees.
+- name: Webhooks
+  description: Event delivery to partner-configured endpoints.
+paths:
+  /ledger/transactions/entries:
+    get:
+      tags: [Transactions]
+      operationId: ledgerTransactionServiceEntries
+      summary: List ledger transaction entries
+      description: Returns categorized ledger entries from the AGL. Cursor-paginated.
+      parameters:
+      - $ref: '#/components/parameters/PageSize'
+      - $ref: '#/components/parameters/PageToken'
+      responses:
+        '200':
+          description: A page of ledger entries.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionList'
+  /ledger/transactions/query:
+    post:
+      tags: [Transactions]
+      operationId: ledgerTransactionServiceQueryEntries
+      summary: Query ledger transaction entries
+      description: Query entries by date range, category, party, or dimension filters.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionQuery'
+      responses:
+        '200':
+          description: Matching ledger entries.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionList'
+  /ledger/transactions/{transactionId}:
+    get:
+      tags: [Transactions]
+      operationId: ledgerTransactionServiceGetTransaction
+      summary: Get a ledger transaction
+      parameters:
+      - name: transactionId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A single ledger transaction.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+        '404':
+          description: Transaction not found.
+  /sources/transactions/sync:
+    post:
+      tags: [Sources]
+      operationId: sourceTransactionServiceSync
+      summary: Sync source transactions into the AGL
+      description: >-
+        Push raw transactions to the Autonomous General Ledger for vendor
+        research, enrichment, and automatic categorization. Idempotent and
+        deduplicated via external_id.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SourceTransactionSync'
+      responses:
+        '200':
+          description: Sync accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SyncResult'
+  /sources/parties/sync:
+    post:
+      tags: [Sources]
+      operationId: sourcePartyServiceSync
+      summary: Sync source parties into the AGL
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SyncBatch'
+      responses:
+        '200':
+          description: Sync accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SyncResult'
+  /ledger/parties:
+    get:
+      tags: [Parties]
+      operationId: ledgerPartyServiceList
+      summary: List parties
+      parameters:
+      - $ref: '#/components/parameters/PageSize'
+      - $ref: '#/components/parameters/PageToken'
+      responses:
+        '200':
+          description: A page of parties.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PartyList'
+  /ledger/parties/{partyId}:
+    get:
+      tags: [Parties]
+      operationId: ledgerPartyServiceGet
+      summary: Get a party
+      parameters:
+      - name: partyId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A single party.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Party'
+  /ledger/categories:
+    get:
+      tags: [Chart of Accounts]
+      operationId: ledgerCategoryServiceList
+      summary: List ledger categories (chart of accounts)
+      responses:
+        '200':
+          description: A list of ledger categories.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoryList'
+  /ledger/departments:
+    get:
+      tags: [Chart of Accounts]
+      operationId: ledgerDepartmentServiceList
+      summary: List departments
+      responses:
+        '200':
+          description: A list of departments.
+          content:
+            application/json:
+              schema:
+                type: object
+  /ledger/locations:
+    get:
+      tags: [Chart of Accounts]
+      operationId: ledgerLocationServiceList
+      summary: List locations
+      responses:
+        '200':
+          description: A list of locations.
+          content:
+            application/json:
+              schema:
+                type: object
+  /ledger/projects:
+    get:
+      tags: [Chart of Accounts]
+      operationId: ledgerProjectServiceList
+      summary: List projects
+      responses:
+        '200':
+          description: A list of projects.
+          content:
+            application/json:
+              schema:
+                type: object
+  /ledger/statements/balance-sheet:
+    get:
+      tags: [Financial Statements]
+      operationId: ledgerStatementsServiceBalanceSheet
+      summary: Get the balance sheet
+      parameters:
+      - $ref: '#/components/parameters/AsOfDate'
+      responses:
+        '200':
+          description: Balance sheet statement.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statement'
+  /ledger/statements/profit-and-loss:
+    get:
+      tags: [Financial Statements]
+      operationId: ledgerStatementsServiceProfitAndLoss
+      summary: Get the profit and loss statement
+      parameters:
+      - $ref: '#/components/parameters/StartDate'
+      - $ref: '#/components/parameters/EndDate'
+      responses:
+        '200':
+          description: Profit and loss statement.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statement'
+  /ledger/statements/cash-flow:
+    get:
+      tags: [Financial Statements]
+      operationId: ledgerStatementsServiceCashFlow
+      summary: Get the cash flow statement
+      parameters:
+      - $ref: '#/components/parameters/StartDate'
+      - $ref: '#/components/parameters/EndDate'
+      responses:
+        '200':
+          description: Cash flow statement.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statement'
+  /ledger/statements/trial-balance:
+    get:
+      tags: [Financial Statements]
+      operationId: ledgerStatementsServiceTrialBalance
+      summary: Get the trial balance
+      parameters:
+      - $ref: '#/components/parameters/AsOfDate'
+      responses:
+        '200':
+          description: Trial balance statement.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statement'
+  /ledger/statements/ap-aging:
+    get:
+      tags: [Financial Statements]
+      operationId: ledgerStatementsServiceApAging
+      summary: Get accounts payable aging
+      responses:
+        '200':
+          description: A/P aging report.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statement'
+  /ledger/statements/ar-aging:
+    get:
+      tags: [Financial Statements]
+      operationId: ledgerStatementsServiceArAging
+      summary: Get accounts receivable aging
+      responses:
+        '200':
+          description: A/R aging report.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statement'
+  /ledger/summarize:
+    post:
+      tags: [Financial Statements]
+      operationId: ledgerSummaryServiceSummarize
+      summary: Summarize ledger data
+      description: Aggregate and summarize ledger data across dimensions and periods.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Ledger summary.
+          content:
+            application/json:
+              schema:
+                type: object
+  /connections/sources:
+    get:
+      tags: [Connections]
+      operationId: connectionSourceServiceList
+      summary: List connected data sources
+      responses:
+        '200':
+          description: A list of connected sources.
+          content:
+            application/json:
+              schema:
+                type: object
+  /connections/sources/sync:
+    post:
+      tags: [Connections]
+      operationId: connectionSourceServiceSync
+      summary: Sync a connected data source
+      responses:
+        '200':
+          description: Sync accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SyncResult'
+  /organizations/clients:
+    get:
+      tags: [Organizations]
+      operationId: organizationClientServiceList
+      summary: List an organization's client books
+      responses:
+        '200':
+          description: A list of client organizations.
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      tags: [Organizations]
+      operationId: organizationClientServiceCreate
+      summary: Create a client book
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Client created.
+  /organizations/clients/bulk:
+    post:
+      tags: [Organizations]
+      operationId: organizationClientServiceBulkCreate
+      summary: Bulk-create client books
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Bulk create result.
+  /webhooks/events:
+    post:
+      tags: [Webhooks]
+      operationId: receiveWebhookEvent
+      summary: Webhook event delivery (partner-hosted)
+      description: >-
+        Digits POSTs a JSON event body to the partner-configured webhook
+        endpoint. Documented here for reference; the partner hosts this
+        endpoint and acknowledges with a 2xx response.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookEvent'
+      responses:
+        '200':
+          description: Event acknowledged.
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization code grant.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://connect.digits.com/v1/oauth/authorize
+          tokenUrl: https://connect.digits.com/v1/oauth/token
+          scopes:
+            ledger.read: Read ledger data and statements
+            ledger.write: Sync source data into the ledger
+  parameters:
+    PageSize:
+      name: page_size
+      in: query
+      required: false
+      schema:
+        type: integer
+      description: Maximum number of items to return per page.
+    PageToken:
+      name: page_token
+      in: query
+      required: false
+      schema:
+        type: string
+      description: Cursor token from a previous response for the next page.
+    AsOfDate:
+      name: as_of
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+    StartDate:
+      name: start_date
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+    EndDate:
+      name: end_date
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+  schemas:
+    Money:
+      type: object
+      properties:
+        amount:
+          type: integer
+          description: Minor units (e.g. cents).
+        currency_code:
+          type: string
+          example: USD
+    Transaction:
+      type: object
+      properties:
+        id:
+          type: string
+        external_id:
+          type: string
+        date:
+          type: string
+          format: date
+        description:
+          type: string
+        amount:
+          $ref: '#/components/schemas/Money'
+        category_id:
+          type: string
+        party_id:
+          type: string
+    TransactionList:
+      type: object
+      properties:
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
+        next_page_token:
+          type: string
+    TransactionQuery:
+      type: object
+      properties:
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        category_id:
+          type: string
+        party_id:
+          type: string
+        page_size:
+          type: integer
+        page_token:
+          type: string
+    SourceTransactionSync:
+      type: object
+      required: [transactions]
+      properties:
+        transactions:
+          type: array
+          items:
+            type: object
+            required: [external_id]
+            properties:
+              external_id:
+                type: string
+                description: Idempotency/dedupe key.
+              date:
+                type: string
+                format: date
+              description:
+                type: string
+              amount:
+                $ref: '#/components/schemas/Money'
+    SyncBatch:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              external_id:
+                type: string
+    SyncResult:
+      type: object
+      properties:
+        accepted:
+          type: integer
+        deduplicated:
+          type: integer
+    Party:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        kind:
+          type: string
+          enum: [vendor, customer, other]
+    PartyList:
+      type: object
+      properties:
+        parties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Party'
+        next_page_token:
+          type: string
+    Category:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+    CategoryList:
+      type: object
+      properties:
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+    Statement:
+      type: object
+      properties:
+        name:
+          type: string
+        period_start:
+          type: string
+          format: date
+        period_end:
+          type: string
+          format: date
+        lines:
+          type: array
+          items:
+            type: object
+    WebhookEvent:
+      type: object
+      properties:
+        type:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        data:
+          type: object

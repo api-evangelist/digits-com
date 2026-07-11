@@ -1,0 +1,12 @@
+generated: '2026-07-11'
+method: searched
+probe: true
+source: https://digits.com/security/
+url: https://digits.com/security/
+certifications:
+- SOC 2
+evidence:
+- source: https://digits.com/security/
+  keywords:
+  - soc 2
+  - trust center

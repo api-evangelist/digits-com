@@ -1,0 +1,24 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/digits-com-openapi.yml
+schemes:
+- name: OAuth2
+  source: openapi/digits-com-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://connect.digits.com/v1/oauth/authorize
+    tokenUrl: https://connect.digits.com/v1/oauth/token
+  description: OAuth 2.0 authorization code grant.
+scopes:
+- scope: ledger.read
+  description: Read ledger data and statements
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/digits-com-openapi.yml
+- scope: ledger.write
+  description: Sync source data into the ledger
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/digits-com-openapi.yml

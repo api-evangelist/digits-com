@@ -185,6 +185,8 @@ apis:
     Discovery is published as an MCP Server Card at
     /.well-known/mcp/server.json (registry schema SEP-1649).
 common:
+- type: AgenticAccess
+  url: agentic-access/digits-com-agentic-access.yml
 - type: TrustCenter
   url: security/digits-com-trust-center.yml
 - type: VulnerabilityDisclosure

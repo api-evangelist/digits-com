@@ -1,0 +1,107 @@
+openapi: 3.1.0
+info:
+  title: Digits Connect Chart of Accounts API
+  version: 1.0.0
+  description: 'The Digits Connect API provides programmatic access to the Autonomous General Ledger (AGL), Digits'' AI-native general ledger. Partners send raw transaction, party, and dimension data via source sync endpoints, where the AGL researches vendors, enriches profiles, and posts fully categorized entries. Read endpoints return ledger transactions, parties, categories (chart of accounts), dimensions, and standard financial statements.
+
+
+    Authentication is OAuth 2.0 (authorization code grant). List endpoints use cursor-based pagination. Source sync endpoints are idempotent and deduplicated via the external_id field.
+
+
+    NOTE (API Evangelist honesty note): Digits does expose a real, documented public first-party API (the Digits Connect API) at https://connect.digits.com/v1 with OAuth 2.0 and an interactive reference at https://developer.digits.com. This document is a hand-authored, honest representation of the documented service methods; it is NOT the vendor''s machine-generated OpenAPI. The public https://digits.com/openapi.json file describes only marketing-site/MCP-discovery metadata, not the Connect API. Request/response schemas below are summarized, not exhaustive. Verify exact paths, parameters, and payloads against developer.digits.com.'
+  contact:
+    name: Digits Developer
+    url: https://developer.digits.com
+  license:
+    name: Proprietary
+    url: https://digits.com
+servers:
+- url: https://connect.digits.com/v1
+  description: Digits Connect API production base URL
+security:
+- OAuth2: []
+tags:
+- name: Chart of Accounts
+  description: Ledger categories and dimensional axes (departments, locations, projects).
+paths:
+  /ledger/categories:
+    get:
+      tags:
+      - Chart of Accounts
+      operationId: ledgerCategoryServiceList
+      summary: List ledger categories (chart of accounts)
+      responses:
+        '200':
+          description: A list of ledger categories.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoryList'
+  /ledger/departments:
+    get:
+      tags:
+      - Chart of Accounts
+      operationId: ledgerDepartmentServiceList
+      summary: List departments
+      responses:
+        '200':
+          description: A list of departments.
+          content:
+            application/json:
+              schema:
+                type: object
+  /ledger/locations:
+    get:
+      tags:
+      - Chart of Accounts
+      operationId: ledgerLocationServiceList
+      summary: List locations
+      responses:
+        '200':
+          description: A list of locations.
+          content:
+            application/json:
+              schema:
+                type: object
+  /ledger/projects:
+    get:
+      tags:
+      - Chart of Accounts
+      operationId: ledgerProjectServiceList
+      summary: List projects
+      responses:
+        '200':
+          description: A list of projects.
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    CategoryList:
+      type: object
+      properties:
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+    Category:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization code grant.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://connect.digits.com/v1/oauth/authorize
+          tokenUrl: https://connect.digits.com/v1/oauth/token
+          scopes:
+            ledger.read: Read ledger data and statements
+            ledger.write: Sync source data into the ledger

@@ -1,0 +1,65 @@
+openapi: 3.1.0
+info:
+  title: Digits Connect Chart of Accounts Webhooks API
+  version: 1.0.0
+  description: 'The Digits Connect API provides programmatic access to the Autonomous General Ledger (AGL), Digits'' AI-native general ledger. Partners send raw transaction, party, and dimension data via source sync endpoints, where the AGL researches vendors, enriches profiles, and posts fully categorized entries. Read endpoints return ledger transactions, parties, categories (chart of accounts), dimensions, and standard financial statements.
+
+
+    Authentication is OAuth 2.0 (authorization code grant). List endpoints use cursor-based pagination. Source sync endpoints are idempotent and deduplicated via the external_id field.
+
+
+    NOTE (API Evangelist honesty note): Digits does expose a real, documented public first-party API (the Digits Connect API) at https://connect.digits.com/v1 with OAuth 2.0 and an interactive reference at https://developer.digits.com. This document is a hand-authored, honest representation of the documented service methods; it is NOT the vendor''s machine-generated OpenAPI. The public https://digits.com/openapi.json file describes only marketing-site/MCP-discovery metadata, not the Connect API. Request/response schemas below are summarized, not exhaustive. Verify exact paths, parameters, and payloads against developer.digits.com.'
+  contact:
+    name: Digits Developer
+    url: https://developer.digits.com
+  license:
+    name: Proprietary
+    url: https://digits.com
+servers:
+- url: https://connect.digits.com/v1
+  description: Digits Connect API production base URL
+security:
+- OAuth2: []
+tags:
+- name: Webhooks
+  description: Event delivery to partner-configured endpoints.
+paths:
+  /webhooks/events:
+    post:
+      tags:
+      - Webhooks
+      operationId: receiveWebhookEvent
+      summary: Webhook event delivery (partner-hosted)
+      description: Digits POSTs a JSON event body to the partner-configured webhook endpoint. Documented here for reference; the partner hosts this endpoint and acknowledges with a 2xx response.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookEvent'
+      responses:
+        '200':
+          description: Event acknowledged.
+components:
+  schemas:
+    WebhookEvent:
+      type: object
+      properties:
+        type:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        data:
+          type: object
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization code grant.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://connect.digits.com/v1/oauth/authorize
+          tokenUrl: https://connect.digits.com/v1/oauth/token
+          scopes:
+            ledger.read: Read ledger data and statements
+            ledger.write: Sync source data into the ledger

@@ -1,0 +1,184 @@
+openapi: 3.1.0
+info:
+  title: Digits Connect Chart of Accounts Financial Statements API
+  version: 1.0.0
+  description: 'The Digits Connect API provides programmatic access to the Autonomous General Ledger (AGL), Digits'' AI-native general ledger. Partners send raw transaction, party, and dimension data via source sync endpoints, where the AGL researches vendors, enriches profiles, and posts fully categorized entries. Read endpoints return ledger transactions, parties, categories (chart of accounts), dimensions, and standard financial statements.
+
+
+    Authentication is OAuth 2.0 (authorization code grant). List endpoints use cursor-based pagination. Source sync endpoints are idempotent and deduplicated via the external_id field.
+
+
+    NOTE (API Evangelist honesty note): Digits does expose a real, documented public first-party API (the Digits Connect API) at https://connect.digits.com/v1 with OAuth 2.0 and an interactive reference at https://developer.digits.com. This document is a hand-authored, honest representation of the documented service methods; it is NOT the vendor''s machine-generated OpenAPI. The public https://digits.com/openapi.json file describes only marketing-site/MCP-discovery metadata, not the Connect API. Request/response schemas below are summarized, not exhaustive. Verify exact paths, parameters, and payloads against developer.digits.com.'
+  contact:
+    name: Digits Developer
+    url: https://developer.digits.com
+  license:
+    name: Proprietary
+    url: https://digits.com
+servers:
+- url: https://connect.digits.com/v1
+  description: Digits Connect API production base URL
+security:
+- OAuth2: []
+tags:
+- name: Financial Statements
+  description: Balance Sheet, P&L, Cash Flow, Trial Balance, aging reports, and summaries.
+paths:
+  /ledger/statements/balance-sheet:
+    get:
+      tags:
+      - Financial Statements
+      operationId: ledgerStatementsServiceBalanceSheet
+      summary: Get the balance sheet
+      parameters:
+      - $ref: '#/components/parameters/AsOfDate'
+      responses:
+        '200':
+          description: Balance sheet statement.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statement'
+  /ledger/statements/profit-and-loss:
+    get:
+      tags:
+      - Financial Statements
+      operationId: ledgerStatementsServiceProfitAndLoss
+      summary: Get the profit and loss statement
+      parameters:
+      - $ref: '#/components/parameters/StartDate'
+      - $ref: '#/components/parameters/EndDate'
+      responses:
+        '200':
+          description: Profit and loss statement.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statement'
+  /ledger/statements/cash-flow:
+    get:
+      tags:
+      - Financial Statements
+      operationId: ledgerStatementsServiceCashFlow
+      summary: Get the cash flow statement
+      parameters:
+      - $ref: '#/components/parameters/StartDate'
+      - $ref: '#/components/parameters/EndDate'
+      responses:
+        '200':
+          description: Cash flow statement.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statement'
+  /ledger/statements/trial-balance:
+    get:
+      tags:
+      - Financial Statements
+      operationId: ledgerStatementsServiceTrialBalance
+      summary: Get the trial balance
+      parameters:
+      - $ref: '#/components/parameters/AsOfDate'
+      responses:
+        '200':
+          description: Trial balance statement.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statement'
+  /ledger/statements/ap-aging:
+    get:
+      tags:
+      - Financial Statements
+      operationId: ledgerStatementsServiceApAging
+      summary: Get accounts payable aging
+      responses:
+        '200':
+          description: A/P aging report.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statement'
+  /ledger/statements/ar-aging:
+    get:
+      tags:
+      - Financial Statements
+      operationId: ledgerStatementsServiceArAging
+      summary: Get accounts receivable aging
+      responses:
+        '200':
+          description: A/R aging report.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statement'
+  /ledger/summarize:
+    post:
+      tags:
+      - Financial Statements
+      operationId: ledgerSummaryServiceSummarize
+      summary: Summarize ledger data
+      description: Aggregate and summarize ledger data across dimensions and periods.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Ledger summary.
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  parameters:
+    EndDate:
+      name: end_date
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+    StartDate:
+      name: start_date
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+    AsOfDate:
+      name: as_of
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+  schemas:
+    Statement:
+      type: object
+      properties:
+        name:
+          type: string
+        period_start:
+          type: string
+          format: date
+        period_end:
+          type: string
+          format: date
+        lines:
+          type: array
+          items:
+            type: object
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization code grant.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://connect.digits.com/v1/oauth/authorize
+          tokenUrl: https://connect.digits.com/v1/oauth/token
+          scopes:
+            ledger.read: Read ledger data and statements
+            ledger.write: Sync source data into the ledger

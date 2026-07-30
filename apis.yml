@@ -9,7 +9,20 @@ description: Digits is an AI-native accounting and bookkeeping platform for star
   transaction, party, and dimension data for AI categorization and vendor
   enrichment, and read back ledger entries and financial statements. Digits also
   publishes an MCP server for AI agents (ChatGPT, Claude) to query the ledger.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/digits-com.png
 tags:
 - Accounting
 - Bookkeeping
@@ -21,136 +34,6 @@ created: '2026-07-01'
 modified: '2026-07-01'
 specificationVersion: '0.19'
 apis:
-- aid: digits-com:digits-com-transactions-api
-  name: Digits Transactions API
-  tags:
-  - Transactions
-  - Ledger
-  - Journal Entries
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.digits.com
-  baseURL: https://connect.digits.com/v1
-  properties:
-  - url: https://developer.digits.com
-    type: Documentation
-  - url: openapi/digits-com-openapi.yml
-    type: OpenAPI
-  - url: collections/digits-com.postman_collection.json
-    type: PostmanCollection
-  - url: collections/digits-com.opencollection.json
-    type: OpenCollection
-  description: Read AI-categorized ledger transactions and journal entries, query
-    entries by filter, and retrieve individual transactions from the Autonomous
-    General Ledger (LedgerTransactionService entries, queryEntries, getTransaction).
-- aid: digits-com:digits-com-source-sync-api
-  name: Digits Source Sync API
-  tags:
-  - Ingestion
-  - Sync
-  - Idempotency
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.digits.com
-  baseURL: https://connect.digits.com/v1
-  properties:
-  - url: https://developer.digits.com
-    type: Documentation
-  - url: openapi/digits-com-openapi.yml
-    type: OpenAPI
-  - url: collections/digits-com.postman_collection.json
-    type: PostmanCollection
-  description: Push raw source data - transactions, parties, products, departments,
-    locations, and projects - into the AGL for AI research, enrichment, and
-    categorization. Idempotence and deduplication are handled via the external_id
-    field (SourceTransactionService, SourcePartyService, and related sync
-    endpoints).
-- aid: digits-com:digits-com-parties-api
-  name: Digits Parties API
-  tags:
-  - Parties
-  - Vendors
-  - Customers
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.digits.com
-  baseURL: https://connect.digits.com/v1
-  properties:
-  - url: https://developer.digits.com
-    type: Documentation
-  - url: openapi/digits-com-openapi.yml
-    type: OpenAPI
-  description: List and retrieve parties - the vendors, suppliers, customers, and
-    other business relationships that Digits hydrates and enriches from
-    transaction data (LedgerPartyService get and list).
-- aid: digits-com:digits-com-chart-of-accounts-api
-  name: Digits Chart of Accounts API
-  tags:
-  - Chart of Accounts
-  - Categories
-  - Dimensions
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.digits.com
-  baseURL: https://connect.digits.com/v1
-  properties:
-  - url: https://developer.digits.com
-    type: Documentation
-  - url: openapi/digits-com-openapi.yml
-    type: OpenAPI
-  description: List and retrieve ledger categories (chart of accounts) plus the
-    dimensional accounting axes - departments, locations, and projects - used to
-    classify financial data (LedgerCategoryService, LedgerDepartmentService,
-    LedgerLocationService, LedgerProjectService).
-- aid: digits-com:digits-com-financial-statements-api
-  name: Digits Financial Statements API
-  tags:
-  - Reports
-  - Financial Statements
-  - Balance Sheet
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.digits.com
-  baseURL: https://connect.digits.com/v1
-  properties:
-  - url: https://developer.digits.com
-    type: Documentation
-  - url: openapi/digits-com-openapi.yml
-    type: OpenAPI
-  description: Generate core financial statements directly from the ledger -
-    Balance Sheet, Profit and Loss, Cash Flow, Trial Balance, A/P Aging, and A/R
-    Aging (LedgerStatementsService), plus ledger summaries
-    (LedgerSummaryService.summarize).
-- aid: digits-com:digits-com-connections-api
-  name: Digits Connections API
-  tags:
-  - Connections
-  - Data Sources
-  - Integrations
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.digits.com
-  baseURL: https://connect.digits.com/v1
-  properties:
-  - url: https://developer.digits.com
-    type: Documentation
-  - url: openapi/digits-com-openapi.yml
-    type: OpenAPI
-  description: List and sync the connected data sources feeding the ledger,
-    covering the 12,000+ financial-institution and payments integrations Digits
-    ingests from (ConnectionSourceService list and sync).
-- aid: digits-com:digits-com-organizations-api
-  name: Digits Organizations API
-  tags:
-  - Organizations
-  - Clients
-  - Firms
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.digits.com
-  baseURL: https://connect.digits.com/v1
-  properties:
-  - url: https://developer.digits.com
-    type: Documentation
-  - url: openapi/digits-com-openapi.yml
-    type: OpenAPI
-  description: Manage accounting-firm organizations and their client books,
-    entities, and employees, including bulk operations for onboarding clients at
-    scale (OrganizationService, OrganizationClientService, ClientEntityService,
-    ClientEmployeeService).
 - aid: digits-com:digits-com-webhooks-api
   name: Digits Webhooks API
   tags:
@@ -163,9 +46,9 @@ apis:
   properties:
   - url: https://developer.digits.com
     type: Documentation
-  description: Receive event notifications from Digits at a configured webhook
-    endpoint; Digits POSTs a JSON event body and expects a 2xx acknowledgment
-    (WebhookService.receiveWebhookEvent).
+  description: >-
+    Receive event notifications from Digits at a configured webhook endpoint; Digits POSTs a JSON event
+    body and expects a 2xx acknowledgment (WebhookService.receiveWebhookEvent).
 - aid: digits-com:digits-com-mcp-server
   name: Digits MCP Server
   tags:
@@ -180,10 +63,138 @@ apis:
     type: Documentation
   - url: https://digits.com/.well-known/mcp/server.json
     type: MCP
-  description: Model Context Protocol server that lets AI clients like ChatGPT and
-    Claude connect directly to Digits to query the ledger in natural language.
-    Discovery is published as an MCP Server Card at
-    /.well-known/mcp/server.json (registry schema SEP-1649).
+  description: >-
+    Model Context Protocol server that lets AI clients like ChatGPT and Claude connect directly to Digits
+    to query the ledger in natural language. Discovery is published as an MCP Server Card at /.well-known/mcp/server.json
+    (registry schema SEP-1649).
+- aid: digits-com:digits-com-chart-of-accounts-api
+  name: Digits Chart of Accounts API
+  description: Ledger categories and dimensional axes (departments, locations, projects).
+  humanURL: https://developer.digits.com
+  baseURL: https://connect.digits.com/v1
+  tags:
+  - Chart of Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/digits-com-chart-of-accounts-api-openapi.yml
+  - type: Documentation
+    url: https://developer.digits.com
+  - type: PostmanCollection
+    url: collections/digits-com.postman_collection.json
+  - type: OpenCollection
+    url: collections/digits-com.opencollection.json
+- aid: digits-com:digits-com-connections-api
+  name: Digits Connections API
+  description: Connected data sources feeding the ledger.
+  humanURL: https://developer.digits.com
+  baseURL: https://connect.digits.com/v1
+  tags:
+  - Connections
+  properties:
+  - type: OpenAPI
+    url: openapi/digits-com-connections-api-openapi.yml
+  - type: Documentation
+    url: https://developer.digits.com
+  - type: PostmanCollection
+    url: collections/digits-com.postman_collection.json
+  - type: OpenCollection
+    url: collections/digits-com.opencollection.json
+- aid: digits-com:digits-com-financial-statements-api
+  name: Digits Financial Statements API
+  description: Balance Sheet, P&L, Cash Flow, Trial Balance, aging reports, and summaries.
+  humanURL: https://developer.digits.com
+  baseURL: https://connect.digits.com/v1
+  tags:
+  - Financial Statements
+  properties:
+  - type: OpenAPI
+    url: openapi/digits-com-financial-statements-api-openapi.yml
+  - type: Documentation
+    url: https://developer.digits.com
+  - type: PostmanCollection
+    url: collections/digits-com.postman_collection.json
+  - type: OpenCollection
+    url: collections/digits-com.opencollection.json
+- aid: digits-com:digits-com-organizations-api
+  name: Digits Organizations API
+  description: Accounting-firm organizations, clients, entities, and employees.
+  humanURL: https://developer.digits.com
+  baseURL: https://connect.digits.com/v1
+  tags:
+  - Organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/digits-com-organizations-api-openapi.yml
+  - type: Documentation
+    url: https://developer.digits.com
+  - type: PostmanCollection
+    url: collections/digits-com.postman_collection.json
+  - type: OpenCollection
+    url: collections/digits-com.opencollection.json
+- aid: digits-com:digits-com-parties-api
+  name: Digits Parties API
+  description: Vendors, suppliers, customers, and other business relationships.
+  humanURL: https://developer.digits.com
+  baseURL: https://connect.digits.com/v1
+  tags:
+  - Parties
+  properties:
+  - type: OpenAPI
+    url: openapi/digits-com-parties-api-openapi.yml
+  - type: Documentation
+    url: https://developer.digits.com
+  - type: PostmanCollection
+    url: collections/digits-com.postman_collection.json
+  - type: OpenCollection
+    url: collections/digits-com.opencollection.json
+- aid: digits-com:digits-com-sources-api
+  name: Digits Sources API
+  description: Push raw source data into the AGL for enrichment and categorization.
+  humanURL: https://developer.digits.com
+  baseURL: https://connect.digits.com/v1
+  tags:
+  - Sources
+  properties:
+  - type: OpenAPI
+    url: openapi/digits-com-sources-api-openapi.yml
+  - type: Documentation
+    url: https://developer.digits.com
+  - type: PostmanCollection
+    url: collections/digits-com.postman_collection.json
+  - type: OpenCollection
+    url: collections/digits-com.opencollection.json
+- aid: digits-com:digits-com-transactions-api
+  name: Digits Transactions API
+  description: Read AI-categorized ledger transactions and journal entries.
+  humanURL: https://developer.digits.com
+  baseURL: https://connect.digits.com/v1
+  tags:
+  - Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/digits-com-transactions-api-openapi.yml
+  - type: Documentation
+    url: https://developer.digits.com
+  - type: PostmanCollection
+    url: collections/digits-com.postman_collection.json
+  - type: OpenCollection
+    url: collections/digits-com.opencollection.json
+- aid: digits-com:digits-com-webhooks-api
+  name: Digits Webhooks API
+  description: Event delivery to partner-configured endpoints.
+  humanURL: https://developer.digits.com
+  baseURL: https://connect.digits.com/v1
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/digits-com-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://developer.digits.com
+  - type: PostmanCollection
+    url: collections/digits-com.postman_collection.json
+  - type: OpenCollection
+    url: collections/digits-com.opencollection.json
 common:
 - type: AgenticAccess
   url: agentic-access/digits-com-agentic-access.yml

@@ -1,0 +1,28 @@
+{
+  "provider": "digits-com",
+  "sources": [
+    "digits-com-chart-of-accounts-api-openapi.yml",
+    "digits-com-connections-api-openapi.yml",
+    "digits-com-financial-statements-api-openapi.yml",
+    "digits-com-organizations-api-openapi.yml",
+    "digits-com-parties-api-openapi.yml",
+    "digits-com-sources-api-openapi.yml",
+    "digits-com-transactions-api-openapi.yml",
+    "digits-com-webhooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "digits-com-chart-of-accounts-api-openapi.yml",
+    "digits-com-connections-api-openapi.yml",
+    "digits-com-financial-statements-api-openapi.yml",
+    "digits-com-organizations-api-openapi.yml",
+    "digits-com-parties-api-openapi.yml",
+    "digits-com-sources-api-openapi.yml",
+    "digits-com-transactions-api-openapi.yml",
+    "digits-com-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

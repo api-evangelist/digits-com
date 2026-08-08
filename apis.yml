@@ -62,7 +62,7 @@ apis:
   - url: https://developer.digits.com
     type: Documentation
   - url: https://digits.com/.well-known/mcp/server.json
-    type: MCP
+    type: Documentation
   description: >-
     Model Context Protocol server that lets AI clients like ChatGPT and Claude connect directly to Digits
     to query the ledger in natural language. Discovery is published as an MCP Server Card at /.well-known/mcp/server.json

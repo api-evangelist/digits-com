@@ -1,0 +1,25 @@
+generated: '2026-07-18'
+method: searched
+source: https://developer.digits.com/docs/api-versioning
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://developer.digits.com/docs/api-versioning
+  policy: >-
+    Backwards-compatible changes (new optional fields, new endpoints, new optional query params) are
+    applied to existing versions without a version bump. Backwards-incompatible changes (removing or
+    renaming fields, changing types/formats, modifying required fields, changing behavior) are made in
+    new versions, with multiple versions supported during a transition period.
+deprecation:
+  policy_url: https://developer.digits.com/docs/api-versioning
+  sunset_header: true
+  description: >-
+    Deprecated endpoints include sunset timelines in response headers (RFC 8594 Sunset) and in the
+    documentation. Beta / private-beta / limited-availability endpoints may change before general release.
+status_page: null
+sla: null
+maturity_labels: [stable, beta, private beta, limited availability]
+deprecated_operations: []
+notes: >-
+  No public status page was found at status.digits.com (host did not resolve) as of the probe date,
+  so no StatusPage pointer is emitted. Deprecation policy with Sunset-header support is documented.

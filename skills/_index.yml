@@ -1,0 +1,16 @@
+generated: '2026-07-18'
+method: generated
+source: derived from Digits Connect API reference operations (developer.digits.com/reference)
+skills:
+- file: digits-sync-source-transactions.md
+  name: Sync source transactions into Digits
+  api: Digits Connect API
+  operations: [connectionsourceservice_sync, sourcepartyservice_sync, sourcetransactionservice_sync, ledgertransactionservice_queryentries]
+- file: digits-read-financial-statements.md
+  name: Read Digits financial statements
+  api: Digits Connect API
+  operations: [companyservice_get, ledgerstatementsservice_profitandloss, ledgerstatementsservice_balancesheet, ledgerstatementsservice_cashflow, ledgerstatementsservice_araging, ledgerstatementsservice_apaging]
+- file: digits-bill-pay-workflow.md
+  name: Run the Digits bill-pay workflow
+  api: Digits Connect API
+  operations: [workflowbillservice_submit, workflowbillservice_approve, workflowbillservice_pay, workflowbillservice_updatepaymentstatus, workflowbillservice_query]

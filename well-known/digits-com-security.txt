@@ -1,0 +1,3 @@
+Contact: security@digits.com
+Encryption: https://github.com/bmhatfield.gpg
+Preferred-Languages: en

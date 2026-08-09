@@ -1,0 +1,54 @@
+generated: '2026-07-18'
+method: searched
+source: https://developer.digits.com/docs
+authentication:
+  style: oauth2-authorization-code
+  token: bearer
+  docs: https://developer.digits.com/docs/authentication
+  see: authentication/digits-authentication.yml
+idempotency:
+  supported: true
+  mechanism: external-identifier
+  key_field: externalId
+  scope: per-source (each source has an independent identifier key space)
+  semantics: >-
+    Writes to `sync` endpoints are idempotent and upsert on `externalId`: sending the same externalId
+    again updates the existing object rather than creating a duplicate; sync endpoints respect the
+    properties of the most recent write to a given identifier.
+  docs: https://developer.digits.com/docs/identifiers
+pagination:
+  style: cursor
+  request_params: [limit, cursor]
+  response_fields:
+    collection: <resource> (e.g. parties, sources)
+    next:
+      cursor: opaque token for the next page
+      more: boolean indicating whether more results exist
+  cursor_opaque: true
+  docs: https://developer.digits.com/docs/pagination
+versioning:
+  scheme: uri-path
+  current: v1
+  prefix: /v1
+  backwards_compatible_changes: [new optional fields, new endpoints, new optional query params]
+  breaking_changes_get_new_version: true
+  docs: https://developer.digits.com/docs/api-versioning
+  see: lifecycle/digits-lifecycle.yml
+rate_limits:
+  client_level: 180 requests/minute per Client ID
+  token_level: 60 requests/minute per access token
+  headers: [X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset]
+  exceeded_status: 429
+  docs: https://developer.digits.com/docs/rate-limits
+  see: rate-limits/digits-rate-limits.yml
+identifiers:
+  external_id: identifiers from the original source system (external to Digits); used for idempotence and dedup
+  digits_id: Digits-provided identifier (also referenced as `id`) used within the Ledger
+  docs: https://developer.digits.com/docs/identifiers
+architecture:
+  model: source-vs-ledger
+  sources: raw financial data from external systems, isolated bankfeed, original external identifiers
+  ledger: unified accounting view built by merging sources with AI categorization and matching
+  docs: https://developer.digits.com/docs/source-vs-ledger
+errors:
+  see: errors/digits-problem-types.yml

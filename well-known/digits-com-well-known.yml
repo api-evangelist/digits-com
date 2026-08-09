@@ -1,0 +1,35 @@
+generated: '2026-07-18'
+method: searched
+source: live probes of digits.com + api.digits.com well-known paths
+hosts:
+- host: https://digits.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: digits-security.txt
+  - path: /.well-known/mcp/server.json
+    status: 200
+    file: digits-mcp-server.json
+  - path: /openapi.json
+    status: 200
+    file: ../openapi/digits-openapi-original.json
+  - path: /llms.txt
+    status: 200
+    file: ../llms/digits-llms.txt
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://api.digits.com
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: digits-oauth-authorization-server.json
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404

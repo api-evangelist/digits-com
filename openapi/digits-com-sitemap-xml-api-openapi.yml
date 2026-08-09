@@ -1,0 +1,30 @@
+openapi: 3.1.0
+info:
+  title: Digits Llms.txt Sitemap.xml API
+  description: Digits is the world's first Agentic General Ledger (AGL) — AI-powered accounting software that auto-books 95%+ of transactions in real time. This document describes publicly available endpoints on digits.com. For the full Digits product API, visit https://digits.com/api or request a demo at https://digits.com/demo.
+  version: 1.0.0
+  contact:
+    name: Digits
+    url: https://digits.com/demo
+  x-logo:
+    url: https://digits.com/favicon/favicon.svg
+servers:
+- url: https://digits.com
+  description: Digits marketing site
+tags:
+- name: Sitemap.xml
+paths:
+  /sitemap.xml:
+    get:
+      operationId: getSitemap
+      summary: XML sitemap
+      description: Returns the full XML sitemap of all public pages on digits.com.
+      responses:
+        '200':
+          description: Sitemap XML
+          content:
+            application/xml:
+              schema:
+                type: string
+      tags:
+      - Sitemap.xml

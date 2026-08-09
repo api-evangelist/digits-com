@@ -1,0 +1,189 @@
+# digits.com llms.txt
+
+> Digits is the world's first Agentic General Ledger (AGL), AI-powered accounting software that does the work for you by auto-booking 95%+ of transactions in real time, delivering always up-to-date financials, and automating bookkeeping, financial management, and the month-end close for small businesses, startups, and accounting firms.
+
+## Core Product
+
+- [AI-Powered Accounting Software](https://digits.com/): Digits is the world's first AI-native accounting platform that does the work for you by auto-booking transactions, delivering real-time verified financials, and automating the month-end close for businesses and accounting firms.
+
+- [Digits AI Accounting](https://digits.com/agl/): The Digits Agentic General Ledger (AGL) is a suite of custom-trained models and agents, trained on over $875 billion in real SMB transactions, that auto-book 95%+ of activity as it happens to deliver real-time, high-fidelity financials for businesses and accounting firms.
+
+## Products & Modules
+
+- [AI Bookkeeping Software](https://digits.com/product/bookkeeping/): Digits Bookkeeping is fully automated AI-native accounting software, providing real-time categorization, automated reconciliations, live connected financial data, dimensional reporting, cash flow and runway tracking, trend insights, and collaborative tools to keep your books accurate and always up to date—without manual bookkeeping.
+
+- [Agentic Close](https://digits.com/product/agentic-close/): Product page for Digits Agentic Close, an AI-native month-end close workflow that collects financial activity continuously, books transactions inside the ledger, starts reconciliation before month-end, generates schedules, runs quality control, surfaces exceptions, and produces reports from the live ledger.
+
+- [AI Financial Reporting](https://digits.com/product/financials/): Digits Financials generates real-time, customizable financial statements and reports directly from the AGL with collaboration features that let business owners, finance teams, and accountants review and share financials without exporting into spreadsheets.
+
+- [AI Financial Dashboards](https://digits.com/product/dashboards/): Digits Dashboards provide real-time, customizable views of revenue, expenses, cash, and other key metrics so founders and finance teams always see the latest financial picture without manual updates.
+
+- [AI-Powered Month-End Close](https://digits.com/accountants/month-end-close/): Digits' month-end close product orchestrates reconciliations, variance detection, and review workflows on top of the AGL so finance teams and firms can move from reactive, manual close processes to proactive, automated close operations.
+
+- [Ask Digits AI Accounting](https://digits.com/product/ask-digits/): Ask Digits is an AI accounting assistant that lets business owners and accountants ask natural-language questions about their finances, get instant answers and insights, and receive automated bookkeeping support driven by always up-to-date ledgers.
+
+- [AI Bill Pay Solution](https://digits.com/product/bill-pay/): Digits Bill Pay uses AI to ingest and understand invoices, route them for approval, schedule payments, and sync everything back to the Agentic General Ledger so accounts payable is automated, accurate, and always reconciled.
+
+- [AI Invoicing Software](https://digits.com/product/invoicing/): Digits Invoicing automates invoice creation, delivery, payment tracking, and syncing into the AGL so revenue, receivables, and cash insights are always accurate and up to date without extra data entry.
+
+- [Digits Mobile Accounting App](https://digits.com/mobile/): Digits Mobile gives business owners and accountants on-the-go access to real-time financials, AI-powered transaction review, and key workflows from the Agentic General Ledger on iOS.
+
+- [AI Automated Schedules](https://digits.com/product/automated-schedules/): Digits Automated Schedules generates and maintains depreciation, amortization, prepaid, and accrual schedules automatically from the AGL — eliminating manual schedule maintenance and keeping fixed-asset and prepaid balances accurate in real time.
+
+## Pricing & Plans
+
+- [Digits Pricing Plans for Businesses](https://digits.com/pricing/): Digits pricing for individual businesses across three plans — Essentials ($65/mo), Core ($100/mo), and Pro ($250/mo). Billed per business, not per seat, with a 30-day free trial and no setup fees. All plans include 24/7 AI bookkeeping, live dashboards, invoicing and bill pay, and Ask Digits; higher tiers add revenue integrations, dimensional accounting, schedules, and AI close agents.
+
+- [Pricing for Accounting Firms](https://digits.com/pricing/#firms): Digits prices accounting firms by client volume — Solo Practice (up to 50 clients, plans from $35/mo), Mid-sized Firm (50+ clients, Plus plans from $50/mo with Agentic Close), and Enterprise (500+ clients, custom outcome-based pricing). All tiers include unlimited team seats, SOC 2 Type II, the full AI agent suite, and Ask Digits; higher tiers add Firm Models.
+
+## Integrations & Security
+
+- [Digits Integrations](https://digits.com/integrations/): Digits connects to 12,000+ financial institutions, banks, payroll providers, and payment processors so the AGL can continuously ingest data, auto-book transactions, and keep financials current in real time.
+
+- [Digits Security and AI Accounting](https://digits.com/security/): Digits is SOC 2 Type II compliant and applies enterprise-grade encryption, TLS-secured connections, and per-organization envelope encryption to all financial data flowing into the AGL, ensuring bank-level protection and compliance.
+
+## For Accounting Firms
+
+- [Digits for Firms](https://digits.com/accountants/): Digits for Firms gives accounting firms exclusive access to AI Close Agents trained on each firm's judgment via the Firm Model, tiered plans designed around real engagements (Tax, Essentials, Core), dedicated support, enablement, and firm-branded client portals. Designed to deliver >95% Zero-Touch Transactions and 26% higher accuracy than LLM-powered alternatives, so firms grow capacity without growing headcount.
+
+- [Best Xero Alternative for Accounting Firms](https://digits.com/blog/best-xero-alternative-for-accounting-firms/): Why accounting firms outgrow Xero's review-driven workflow at scale, and why Digits is the strongest alternative for firms managing multiple clients. Covers Xero's per-client rule maintenance, manual reconciliation, and truth drift from bolt-on AI tools, contrasted with Digits' Agentic General Ledger™, tiered intelligence (client, firm, and global models), Firm Models, embedded verification, and Zero-Touch Transactions™.
+
+- [Digits vs. Puzzle: Which AI Accounting Platform Is Actually Built for Firms?](https://digits.com/blog/digits-vs-puzzle/): A side-by-side comparison of Digits and Puzzle for accounting firms, covering AI architecture, accuracy benchmarks, workflow automation, and pricing model differences.
+
+- [Best QuickBooks Alternative for Accounting Firms Managing Multiple Clients](https://digits.com/blog/best-quickbooks-alternative-for-accounting-firms/): Positions Digits as the strongest QuickBooks alternative for firms managing 10+ clients. Contrasts QuickBooks' legacy relational database (per-client rules that don't compound) with Digits' AI-native Agentic General Ledger and Firm Models that learn across the entire portfolio. Includes a side-by-side comparison table and a documented partner firm running 100+ clients with Digits handling the routine work.
+
+- [Digits Academy](https://academy.digits.com/): Digits Academy is the training and enablement hub for accounting firms building AI-native practices on Digits. Courses include Mastering Digits, Staying Ahead in AI, Building an AI-Native Firm, Modern Accounting Best Practices, and Growing Your Firm with Digits — drawing on proven insights from thousands of monthly closes run on the Digits Agentic General Ledger™.
+
+- [Digits Accountant Partner Program - Firm Models](https://digits.com/blog/firm-models-are-here-exclusive-to-the-digits-accounting-partner-program/): Firm Models are exclusive, partner-only AI models trained for accounting firm workflows, enabling partners to standardize processes, scale client work, and differentiate their services using Digits' AGL-powered automation.
+
+## Compares & Alternatives
+
+- [Compare Digits to Other Accounting Platforms](https://digits.com/compare/): Index of side-by-side comparisons between Digits and 14 alternative accounting platforms (QuickBooks, Xero, Rillet, Puzzle, Campfire, Kick, Botkeeper, Zoho Books, FreshBooks, DualEntry, Fincent, Finta, SoftLedger, Uplinq, Everest Systems) — covering how Digits' AI-native Agentic General Ledger™ differs from legacy accounting software, review-driven workflows, modular ERPs, and service-led bookkeeping models.
+
+- [Digits vs Quickbooks](https://digits.com/compare/quickbooks/): A side-by-side comparison of Digits and QuickBooks Online, explaining how Digits' AI-native Agentic General Ledger differs from legacy, manual-first accounting software. Covers automation depth, reconciliation workflows, reporting, collaboration, pricing structure, and user limits to help businesses and firms choose the right platform.
+
+- [Digits vs Xero](https://digits.com/compare/xero/): A side-by-side comparison of Digits and Xero, showing how Digits' AI-native Agentic General Ledger automates bookkeeping and reconciliation at a level legacy cloud accounting platforms cannot match.
+
+- [Digits vs Puzzle](https://digits.com/compare/puzzle/): Compares Digits' AI-native Agentic General Ledger™ (auto-books, reconciles, and reviews continuously, surfacing only exceptions) against Puzzle's review-driven workflow, where teams still verify statement tie-outs and reconcile each period.
+
+- [Digits vs Rillet](https://digits.com/compare/rillet/): Compares Digits' continuous statement-tied bank reconciliation and transparent published pricing against Rillet's auto-matching workflow, sales-led pricing, and Enterprise-only Custom API — for firms and CFOs choosing between exception-only close and a workflow-driven (tasks, approvals, sign-offs) month-end.
+
+- [Digits vs Zoho Books](https://digits.com/compare/zohobooks/): Compares Digits' AI-native, exception-only close against Zoho Books' traditional rules-based accounting with manual reconciliation, capped users, and paid add-ons for Location tracking and BillPay — contrasting all-in-one AI accounting with a standalone app extended through the Zoho suite.
+
+- [Digits vs DualEntry](https://digits.com/compare/dualentry/): Compares Digits' exception-only, statement-triggered close against DualEntry's checklist-driven ERP close (tasks, sign-offs, period locking) — and contrasts Digits' unlimited users per business with DualEntry's seat-capped base plan (3 full-access + 5 view/approve).
+
+- [Digits vs FreshBooks](https://digits.com/compare/freshbooks/): Compares Digits and FreshBooks for modern businesses and accounting teams, highlighting Digits as an AI-native accounting platform with automated bank reconciliation, live dimensional dashboards, unlimited collaboration, and real-time financial workflows.
+
+- [Digits vs Kick](https://digits.com/compare/kick/): Compares Digits' continuous AI bank reconciliation and AI Bill Pay against Kick's user-built categorization rules, statement-based reconciliation workflow, and Stripe-only invoicing — highlighting that Kick has no native bill pay, no API, and no published AI training or benchmark methodology.
+
+- [Digits vs Everest](https://digits.com/compare/everest-systems/): Compares Digits' continuous, statement-tied AI bookkeeping against Everest's modular ERP suite where AI agents are run via natural-language prompts inside finance workflows — contrasting fast setup at $100/mo with Everest's sales-scoped, module-based contracts and ERP rollout overhead.
+
+- [Digits vs Fincent](https://digits.com/compare/fincent/): Compares Digits' AI-native Agentic General Ledger™ against Fincent's service-led bookkeeping model, where a dedicated human bookkeeper closes the books each month — contrasting all-in-one software with a service-backed close that requires ongoing back-and-forth coordination.
+
+- [Digits vs Finta](https://digits.com/compare/finta/): Compares Digits' continuous, exception-only close against Finta's rules-based auto-categorization with smart suggestions ($300/mo Growth, tiered by usage limits) — for very early-stage startups choosing between a clearly-defined statement-driven close and a lighter, transaction-volume-bound model.
+
+- [Digits vs SoftLedger](https://digits.com/compare/softledger/): Compares Digits' AI-native automation and built-in client collaboration against SoftLedger's API-first, multi-entity cloud GL with manual reconciliation, rules-based controls, and custom-quote pricing — for teams choosing between AI-driven exception-only close and a configurable, integration-first ledger.
+
+- [Digits vs Uplinq](https://digits.com/compare/uplinq/): Compares Digits' self-serve AI bookkeeping against Uplinq's service-led model, where lower tiers include a dedicated bookkeeper but no monthly close — contrasting platform-first AI accounting with a higher-cost human + AI bookkeeping service.
+
+- [Digits vs Botkeeper](https://digits.com/compare/botkeeper/): Compares Digits' AI-native Agentic General Ledger™ (one ledger-native system of record with statement-tied bank recs, AP/AR, and dashboards built in) against Botkeeper's automation layer that runs on top of QuickBooks or Xero — contrasting unlimited users per business with Botkeeper's per-license model billed per client/entity, and a single source of record against the dueling-automation overhead of maintaining two systems.
+
+- [Digits vs Campfire](https://digits.com/compare/campfire/): Compares Digits' continuous, exception-only close and transparent published pricing against Campfire's workflow-driven close (tasks, owners, handoffs, approvals) split across two products (Core Accounting + Revenue Automation) with sales-led pricing — for firms and finance teams choosing between always-current statement-tied books and a modular AI-first ERP with limited public benchmark detail.
+
+## Customer Stories
+
+- [Customer Success Stories](https://digits.com/case-studies/): A showcase of how startups, SMBs, and accounting firms use Digits and agentic automation to reduce manual bookkeeping, speed up closes, gain real-time visibility, and make better financial decisions.
+
+- [How Steve Tonkin & Company Is Building a Future-Ready Accounting Firm with Digits](https://digits.com/case-studies/how-steve-tonkin-company-is-building-a-future-ready-accounting-firm-with-digits/): Case study of Steve Tonkin & Company, a Denver-area family-run firm offering bookkeeping, accounting, and controllership services. After moving off QuickBooks Online and Excel, Digits delivered an immediate 20% time savings with projected 30–50% overall efficiency gains, faster reconciliation, and real-time client visibility — positioning the firm to scale past 30 clients without sacrificing responsiveness.
+
+- [How TFMA LLC Improved Workflow Efficiency by 70% with Digits](https://digits.com/case-studies/how-tfma-llc-improved-workflow-efficiency-by-70-with-digits/): Case study of TFMA LLC, a Tempe, AZ accounting firm led by Jonathan Brown, serving entrepreneurs with accounting, payroll, financial modeling, and advisory services. Digits drove a 70% improvement in workflow efficiency, turning multi-week annual cleanups into 2–4 day engagements, enabling Jonathan to scale advisory revenue ($500–$1,000/mo per client) while keeping bookkeeping engagements profitable at 1–3 hours per client per month.
+
+- [Mana Accounting & Advisory Case Study](https://digits.com/case-studies/mana-accounting-advisory-saving-hours-with-ai-powered-accounting/): How Mana Accounting replaced manual categorization and rule management with Digits AI, freeing the firm to focus on advisory services instead of tedious bookkeeping tasks.
+
+- [Freeplay Case Study](https://digits.com/case-studies/freeplay/): How seed-stage AI startup Freeplay cut accounting costs by 50% by replacing fragmented software and consulting with Digits' integrated AI-native platform.
+
+- [GrowthMap Case Study](https://digits.com/case-studies/growthmap/): How GrowthMap replaced patchwork accounting with Digits to get real-time financial clarity, cut bookkeeping time to minutes, and save thousands while scaling confidently.
+
+- [ECA Gate and Lock Case Study](https://digits.com/case-studies/eca-gate/): ECA Gate and Lock replaced hours of manual bookkeeping in QuickBooks with Digits AI, reducing daily accounting time from four hours to under 20 minutes while gaining real-time financial visibility without constant cleanup.
+
+- [Adept Accounting Case Study](https://digits.com/case-studies/adept-accounting/): Adept: Accounting Principles & Solutions cut manual bookkeeping workload by 75% with Digits, shifting the firm's focus from routine admin to financial analysis, forecasting, and strategic advisory.
+
+## Blog & Insights
+
+- [Digits Blog](https://digits.com/blog/): The Digits Blog shares product news, feature announcements, and perspectives on AI-native accounting, automation, and the evolution from traditional ledgers to the Agentic General Ledger.
+
+- [Introducing the Autonomous General Ledger](https://digits.com/blog/agl-announcement/): The flagship announcement of the Digits Autonomous General Ledger (AGL), the first AI-native accounting platform that auto-books 93%+ of transactions using models trained on $875 billion in real financial data.
+
+- [Agentic Close](https://digits.com/blog/agentic-close/): Introduces Digits Agentic Close, an AI-native close workflow where the ledger continuously books activity, evaluates work against firm standards, surfaces exceptions, and lets accountants manage by exception directly inside the ledger.
+
+- [Introducing Digits Accounting Agents](https://digits.com/blog/introducing-digits-accounting-agents/): Digits Accounting Agents automate bookkeeping, dashboards, and reporting through AI-native workflows, shifting accounting from manual feature-by-feature work to autonomous agent-driven operations.
+
+- [Digits is Now Programmable](https://digits.com/blog/digits-is-now-programmable/): The Connect API opens the Digits AGL to developers and partners, providing programmatic access to AI-led categorization, vendor matching, reconciliation, and dimensional accounting.
+
+- [Announcing Ask Digits](https://digits.com/blog/announcing-ask-digits/): The Ask Digits launch announcement explains how an AI assistant built on the AGL can answer financial questions in real time, surface insights automatically, and help automate routine bookkeeping and analysis.
+
+- [GPT-4o vs. Digits AI](https://digits.com/blog/gpt-4o-vs-digits-ai/): A technical comparison showing how Digits' purpose-trained accounting models outperform general-purpose LLMs like GPT-4o on financial categorization and bookkeeping tasks, achieving higher accuracy through domain-specific training on hundreds of billions in transactions.
+
+- [AI Bank Reconciliations](https://digits.com/blog/ai-bank-reconciliations/): Digits uses AI and agentic workflows to automatically reconcile bank transactions to the ledger, resolving most matches without human input and dramatically reducing the time and effort required to close the books.
+
+- [Digits Financials Evolution](https://digits.com/blog/what-s-next-for-digits-from-real-time-to-verified-financials/): This post explains Digits' roadmap from real-time to verified financials, the role of the AGL in that journey, and the introduction of the Accountant Directory to help businesses find trusted professionals.
+
+- [Introducing Automated Schedules: Detected, Posted, Reconciled — Inside The Ledger](https://digits.com/blog/automated-schedules/): Launch announcement by Jeff Seibert (May 7, 2026) introducing Digits Schedules, which brings fixed assets, prepaid expenses, and accrual workflows out of spreadsheets and into the general ledger. The system detects schedule-worthy transactions automatically, drafts depreciation or amortization entries with context, and posts recurring journal entries period after period — all subject to accountant approval. Available on Digits for Firms plans, with automated revenue recognition and accrued expenses coming next.
+
+- [What is continuous close? ](https://digits.com/blog/what-is-continuous-close/): Defines continuous close as an accounting workflow where the ledger categorizes, reconciles, verifies, and posts transactions as they arrive, turning month-end from a cleanup sprint into a review and sign-off step.
+
+- [AI-Enabled vs. AI-Native vs. Agentic Accounting Software: What's the Difference?](https://digits.com/blog/ai-enabled-vs-ai-native-vs-agentic-accounting-software-whats-the-difference/): Explains the distinction between AI-enabled, AI-native, and agentic accounting software — what each label means, how they differ architecturally and behaviorally, and why the combination of both AI-native and agentic matters for accounting firms.
+
+- [What Is Real-Time Financial Reporting? (And Why Most Accounting Software Doesn't Actually Deliver It)](https://digits.com/blog/what-is-real-time-financial-reporting/): Explains what real-time financial reporting means, why traditional accounting platforms (QuickBooks, Xero, NetSuite) create reporting delays due to relational database architecture and manual review workflows, and how Digits' Agentic General Ledger™ delivers continuous bookkeeping through AI-native categorization, embedded verification, and tiered intelligence. Covers accuracy benchmarks, MCP integration for secure AI querying, and truth drift. Written for accounting firms and businesses evaluating real-time bookkeeping.
+
+- [Will AI Replace Accountants? Why the Job Is Shifting, Not Disappearing](https://digits.com/blog/will-ai-replace-accountants/): Explainer on how AI is changing the accountant's role, not eliminating it. Argues AI replaces routine categorization, reconciliation, and cleanup while accountants become "the trust layer" — handling judgment, exceptions, advisory, and professional accountability. Covers the Digits Agentic General Ledger, tiered intelligence, Zero-Touch Transactions, and implications for partners, managers, staff, and accounting students.
+
+## Podcasts
+
+- [AI-Native Accounting Podcast](https://digits.com/ai-native-accounting/): AI-Native Accounting is a podcast that brings experts from the accounting profession together to discuss how AI, agentic systems, and products like Digits are transforming bookkeeping, controllership, and advisory services.
+
+- [Between Two Founders Podcast](https://digits.com/between-two-founders/): Between Two Founders is a podcast where startup founders share candid stories, tactical lessons, and insight into building and scaling companies, curated for other founders and finance-minded operators.
+
+- [The Trifecta: 2030 Playbook for CPAs](https://digits.com/ai-native-accounting/006/): This resource explores how AI and agentic systems like the AGL will reshape accounting by 2030, including changing expectations for CPAs, new service models, and the shift from manual entry to continuous verification.
+
+## Developer & API
+
+- [Digits Developer Blog](https://digits.com/blog/developer/): The Digits Developer Blog provides technical content, examples, and updates for developers integrating with Digits' APIs, building on financial data, or extending automation around the AGL.
+
+- [Digits Connect API](https://digits.com/api/): The Digits Connect API gives developers programmatic access to the Agentic General Ledger™ — AI-native categorization, vendor enrichment, idempotent writes, consistent schemas, and a full OpenAPI spec and sandbox. The Connect API ships alongside the Digits MCP Server, which exposes the same ledger to Claude, ChatGPT, Cursor, and other MCP-compatible tools for real-time financial analysis and automation.
+
+- [Digits Developer Documentation](https://developer.digits.com/docs/overview): Official Digits developer documentation for the Connect API and MCP Server, including the OpenAPI spec, sandbox access, authentication, schemas, idempotent write patterns, MCP setup, and reference material for building accounting and ledger integrations against the Agentic General Ledger™.
+
+- [Introducing Digits MCP: The Ledger Agents Love Most](https://digits.com/blog/mcp/): Launch announcement for Digits MCP Server, which exposes the Agentic General Ledger to Claude, ChatGPT, Cursor, and any MCP-compatible tool — letting AI assistants query live, auto-booked financial data with stable entity identifiers, no manual cleanup, and no per-seat fees.
+
+## Help & Resources
+
+- [Digits Help Center](https://help.digits.com/): Documentation for getting the most out of Digits, with guides tailored for business owners and accounting firms.
+
+- [Digits Changelog](https://help.digits.com/changelog/): Latest product updates, new features, and improvements to the Digits platform.
+
+## AI Accounting Glossary
+
+- [AI Accounting Glossary](https://digits.com/glossary/): Authoritative definitions of accounting, AI, and AI-native accounting concepts, including Digits-specific architecture and emerging industry terminology.
+
+- [Agentic General Ledger™ (AGL®)](glossary/agentic-general-ledger-agl): Digits' accounting-specific AI model architecture powering AI-native accounting workflows.
+
+- [AI-Native Accounting](glossary/ai-native-accounting): Accounting software designed from the ground up around AI rather than AI features added later.
+
+- [Agentic Accounting Software](glossary/agentic-accounting-software): Accounting software that uses AI agents to move accounting workflows forward while keeping accountants in control.
+
+- [Agentic AI](glossary/agentic-ai): AI that plans, acts, and adapts within workflows to achieve a goal.
+
+- [Continuous Close](glossary/continuous-close): An accounting approach that keeps books categorized, reconciled, verified, and close-ready throughout the month.
+
+- [Real-Time Financial Reporting](glossary/real-time-financial-reporting): Up-to-date financial reporting powered by continuously maintained books.
+
+- [Truth Drift](glossary/truth-drift): The divergence that occurs when AI outputs become disconnected from the system of record.
+
+- [Trust Layer](glossary/the-trust-layer): The licensed accounting professional who defines quality, verifies outputs, and takes accountability for AI-assisted accounting work.
+
+- [Tiered Intelligence](glossary/tiered-intelligence): Digits' framework for applying multiple layers of accounting intelligence to financial decisions.
+
+- [Ledger-native](glossary/ledger-native): Software or intelligence that operates directly within the general ledger instead of as a separate AI layer, helping keep financial records accurate, current, and continuously ready for reporting.
+
+- [Model Layer Cake](glossary/model-layer-cake): Digits' multi-layer AI architecture that consults specialized models in sequence, from company-specific knowledge to global accounting intelligence.

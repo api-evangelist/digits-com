@@ -1,0 +1,33 @@
+generated: '2026-07-18'
+method: searched
+source: https://developer.digits.com/docs (rate-limits, authentication, webhook reference)
+format: http-status
+envelope: >-
+  Error responses return a JSON body with a default error response schema (per the Digits webhook and
+  reference specs). The Digits Connect API is not documented as returning RFC 9457
+  application/problem+json.
+problems:
+- status: 400
+  title: Bad Request
+  cause: Malformed request, invalid parameters, or invalid OAuth authorization request.
+- status: 401
+  title: Unauthorized
+  cause: Missing, invalid, expired, or revoked access token.
+- status: 403
+  title: Forbidden
+  cause: Access token lacks the required OAuth scope for the operation (e.g. missing source:sync, ledger:read).
+- status: 404
+  title: Not Found
+  cause: Referenced resource (source, entity, transaction, party) does not exist.
+- status: 429
+  title: Too Many Requests
+  cause: Client-level (180/min) or token-level (60/min) rate limit exceeded. See X-RateLimit-* headers.
+  remediation: Back off until the X-RateLimit-Reset timestamp; reduce request rate.
+  docs: https://developer.digits.com/docs/rate-limits
+- status: 500
+  title: Internal Server Error
+  cause: Unexpected server-side error.
+notes: >-
+  Statuses derived from documented behavior (rate-limit 429 with headers, OAuth scope requirements, and
+  the "default error response" in the webhook OpenAPI). A full per-operation error registry is not
+  published on the public developer surface; upgrade if a structured error reference is released.

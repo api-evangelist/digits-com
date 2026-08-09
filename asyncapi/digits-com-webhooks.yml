@@ -1,0 +1,23 @@
+generated: '2026-07-18'
+method: searched
+source: https://developer.digits.com/reference/receivewebhookevent
+type: Webhooks
+status: private-beta
+spec_type: none
+description: >-
+  Digits sends webhook events as a JSON POST to a customer-configured endpoint; return any 2xx response
+  to acknowledge receipt (the response body is ignored). Webhooks are in private beta — early access via
+  developer@digits.com. Digits publishes an illustrative OpenAPI 3.0.3 "Digits Webhooks" schema (title:
+  Digits Webhooks) describing the WebhookEvent request body, but no AsyncAPI document is published.
+delivery:
+  transport: http
+  method: POST
+  ack: any 2xx response; response body ignored
+  operation: receiveWebhookEvent
+  content_type: application/json
+  payload_schema: WebhookEvent
+early_access_contact: developer@digits.com
+reference: https://developer.digits.com/reference/receivewebhookevent
+notes: >-
+  Captured as a Webhooks surface (no AsyncAPI spec exists, so none is fabricated). Event-type catalog
+  is not enumerated on the public reference during private beta.

@@ -2,13 +2,12 @@ aid: digits-com
 url: https://raw.githubusercontent.com/api-evangelist/digits-com/refs/heads/main/apis.yml
 name: Digits
 kind: company
-description: Digits is an AI-native accounting and bookkeeping platform for startups
-  and their accountants, built around the Autonomous General Ledger (AGL) that
-  auto-books the majority of transactions in real time. The Digits Connect API opens
-  the AGL programmatically over REST with OAuth 2.0, letting partners send raw
-  transaction, party, and dimension data for AI categorization and vendor
-  enrichment, and read back ledger entries and financial statements. Digits also
-  publishes an MCP server for AI agents (ChatGPT, Claude) to query the ledger.
+description: Digits is an AI-native accounting and bookkeeping platform for startups and their accountants,
+  built around the Autonomous General Ledger (AGL) that auto-books the majority of transactions in real
+  time. The Digits Connect API opens the AGL programmatically over REST with OAuth 2.0, letting partners
+  send raw transaction, party, and dimension data for AI categorization and vendor enrichment, and read
+  back ledger entries and financial statements. Digits also publishes an MCP server for AI agents (ChatGPT,
+  Claude) to query the ledger.
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -31,7 +30,7 @@ tags:
 - AI
 - FinTech
 created: '2026-07-01'
-modified: '2026-07-01'
+modified: '2026-08-08'
 specificationVersion: '0.19'
 apis:
 - aid: digits-com:digits-com-webhooks-api
@@ -46,9 +45,8 @@ apis:
   properties:
   - url: https://developer.digits.com
     type: Documentation
-  description: >-
-    Receive event notifications from Digits at a configured webhook endpoint; Digits POSTs a JSON event
-    body and expects a 2xx acknowledgment (WebhookService.receiveWebhookEvent).
+  description: Receive event notifications from Digits at a configured webhook endpoint; Digits POSTs
+    a JSON event body and expects a 2xx acknowledgment (WebhookService.receiveWebhookEvent).
 - aid: digits-com:digits-com-mcp-server
   name: Digits MCP Server
   tags:
@@ -63,10 +61,9 @@ apis:
     type: Documentation
   - url: https://digits.com/.well-known/mcp/server.json
     type: Documentation
-  description: >-
-    Model Context Protocol server that lets AI clients like ChatGPT and Claude connect directly to Digits
-    to query the ledger in natural language. Discovery is published as an MCP Server Card at /.well-known/mcp/server.json
-    (registry schema SEP-1649).
+  description: Model Context Protocol server that lets AI clients like ChatGPT and Claude connect directly
+    to Digits to query the ledger in natural language. Discovery is published as an MCP Server Card at
+    /.well-known/mcp/server.json (registry schema SEP-1649).
 - aid: digits-com:digits-com-chart-of-accounts-api
   name: Digits Chart of Accounts API
   description: Ledger categories and dimensional axes (departments, locations, projects).
@@ -224,6 +221,60 @@ common:
   url: finops/digits-com-finops.yml
 - url: https://digits.com/blog/rss.xml
   type: Blog
+- type: DeveloperPortal
+  url: https://developer.digits.com
+- type: APIReference
+  url: https://developer.digits.com/reference/companyservice_get
+- type: GettingStarted
+  url: https://developer.digits.com/docs/app-creation
+- type: Pricing
+  url: https://digits.com/pricing
+- type: SignUp
+  url: https://my.digits.com
+- type: Login
+  url: https://my.digits.com
+- type: TermsOfService
+  url: https://my.digits.com/legal/terms-of-service
+- type: PrivacyPolicy
+  url: https://my.digits.com/legal/privacy-policy
+- type: Support
+  url: https://help.digits.com
+- type: Security
+  url: https://digits.com/security/
+- type: Compliance
+  url: https://trust.digits.com
+- type: Overlay
+  url: overlays/digits-com-overlay.yaml
+- type: MCPServer
+  url: mcp/digits-com-mcp.yml
+- type: LLMsTxt
+  url: llms/digits-com-llms.txt
+- type: WellKnown
+  url: well-known/digits-com-well-known.yml
+- type: SecurityTxt
+  url: well-known/digits-com-security.txt
+- type: Conventions
+  url: conventions/digits-com-conventions.yml
+- type: Idempotency
+  url: conventions/digits-com-conventions.yml
+- type: Lifecycle
+  url: lifecycle/digits-com-lifecycle.yml
+- type: Deprecation
+  url: lifecycle/digits-com-lifecycle.yml
+- type: Conformance
+  url: conformance/digits-com-conformance.yml
+- type: ErrorCatalog
+  url: errors/digits-com-problem-types.yml
+- type: DataModel
+  url: data-model/digits-com-data-model.yml
+- type: Sandbox
+  url: sandbox/digits-com-sandbox.yml
+- type: Webhooks
+  url: asyncapi/digits-com-webhooks.yml
+- type: AgentSkill
+  url: skills/_index.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-merged-from:
+- digits

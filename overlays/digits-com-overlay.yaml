@@ -1,0 +1,19 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Digits
+  version: 1.0.0
+extends: openapi/digits-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: digits
+    x-apievangelist-connect-api: https://developer.digits.com/openapi
+    x-apievangelist-mcp: https://digits.com/.well-known/mcp/server.json
+    x-apievangelist-llms-txt: https://digits.com/llms.txt
+- target: $.info
+  update:
+    x-apievangelist-note: >-
+      This is the Digits marketing-site OpenAPI (discovery endpoints on digits.com). The full Digits
+      Connect API (OAuth 2.0, base https://connect.digits.com/v1) is documented at developer.digits.com
+      and captured in this repo's authentication/, scopes/, conventions/, rate-limits/, errors/,
+      data-model/, and skills/ artifacts.

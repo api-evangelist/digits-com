@@ -1,0 +1,23 @@
+generated: '2026-07-18'
+method: searched
+source: https://developer.digits.com/docs/developer-sandbox-testing-your-app
+docs:
+- https://developer.digits.com/docs/developer-sandbox-testing-your-app
+- https://developer.digits.com/docs/developer-accounts
+- https://developer.digits.com/docs/app-creation
+sandbox:
+  available: true
+  description: >-
+    Digits provides a developer sandbox for testing an app before publishing. Developers create a
+    developer account, create an app to obtain OAuth client credentials and register redirect URIs,
+    then exercise the OAuth authorization-code flow and the sync/read endpoints against the sandbox
+    before going through the app publishing/review process.
+  flow:
+  - Create a developer account (developer.digits.com).
+  - Create an app to get a Client ID / redirect URI (docs/app-creation).
+  - Test the app against the developer sandbox (docs/developer-sandbox-testing-your-app).
+  - Publish the app for production use (docs/publishing-apps).
+test_values: >-
+  Digits does not publish fixed "magic" test identifiers or test card numbers on the public developer
+  surface; the sandbox is exercised with developer-created apps and source data. No test values are
+  invented here.

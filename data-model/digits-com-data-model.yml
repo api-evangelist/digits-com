@@ -1,0 +1,114 @@
+generated: '2026-07-18'
+method: derived
+source: https://developer.digits.com/reference (Digits Connect API service/resource inventory)
+architecture:
+  layers:
+  - name: Source
+    description: Raw financial data ingested from external systems, isolated per source, keyed by externalId.
+  - name: Ledger
+    description: Unified accounting view built by merging sources with AI categorization and matching.
+  identifiers:
+    externalId: caller/source-system identifier, used for idempotence and dedup within a source.
+    digitsId: Digits-assigned identifier (also `id`), used within the Ledger.
+entities:
+- name: Company
+  layer: ledger
+  operations: [companyservice_get]
+- name: Source
+  layer: source
+  operations: [connectionsourceservice_sync, connectionsourceservice_list]
+- name: SourceTransaction
+  layer: source
+  operations: [sourcetransactionservice_sync, sourcetransactionservice_delete]
+- name: LedgerTransaction
+  layer: ledger
+  operations: [ledgertransactionservice_entries, ledgertransactionservice_queryentries, ledgertransactionservice_gettransaction]
+- name: Party
+  layer: both
+  operations: [sourcepartyservice_list, sourcepartyservice_sync, ledgerpartyservice_list, ledgerpartyservice_get]
+- name: Category
+  layer: ledger
+  description: Chart of accounts.
+  operations: [ledgercategoryservice_list, ledgercategoryservice_get]
+- name: Department
+  layer: both
+  operations: [sourcedepartmentservice_list, sourcedepartmentservice_sync, ledgerdepartmentservice_get, ledgerdepartmentservice_list]
+- name: Location
+  layer: both
+  operations: [sourcelocationservice_list, sourcelocationservice_sync, ledgerlocationservice_get, ledgerlocationservice_list]
+- name: Project
+  layer: both
+  operations: [sourceprojectservice_list, sourceprojectservice_sync, ledgerprojectservice_get, ledgerprojectservice_list]
+- name: Product
+  layer: source
+  operations: [sourceproductservice_list, sourceproductservice_sync]
+- name: FinancialStatement
+  layer: ledger
+  operations: [ledgerstatementsservice_balancesheet, ledgerstatementsservice_cashflow, ledgerstatementsservice_profitandloss, ledgerstatementsservice_trialbalance, ledgerstatementsservice_apaging, ledgerstatementsservice_araging]
+- name: Summary
+  layer: ledger
+  operations: [ledgersummaryservice_summarize]
+- name: Organization
+  layer: org
+  operations: [organizationservice_get]
+- name: Employee
+  layer: org
+  operations: [organizationemployeeservice_list, organizationemployeeservice_get, organizationemployeeservice_create, organizationemployeeservice_update, organizationemployeeservice_delete, organizationemployeeservice_bulkdelete]
+- name: Entity
+  layer: org
+  operations: [organizationentityservice_list, organizationentityservice_get, organizationentityservice_create, organizationentityservice_delete]
+- name: Client
+  layer: org
+  description: Accounting-firm client.
+  operations: [organizationclientservice_list, organizationclientservice_get, organizationclientservice_create, organizationclientservice_bulkcreate, organizationclientservice_delete, organizationclientservice_bulkdelete]
+- name: PaymentInstrument
+  layer: org
+  operations: [entitypaymentinstrumentservice_create, entitypaymentinstrumentservice_query, entitypaymentinstrumentservice_delete, clientpaymentinstrumentservice_create, clientpaymentinstrumentservice_query, clientpaymentinstrumentservice_delete]
+- name: Bill
+  layer: workflow
+  operations: [workflowbillservice_query, workflowbillservice_get, workflowbillservice_submit, workflowbillservice_approve, workflowbillservice_pay, workflowbillservice_reject, workflowbillservice_void, workflowbillservice_updatepaymentstatus, workflowbillservice_delete]
+relationships:
+- from: SourceTransaction
+  to: Source
+  type: belongs_to
+  via: source (externalId key space)
+- from: SourceTransaction
+  to: Party
+  type: belongs_to
+  via: party
+- from: LedgerTransaction
+  to: Category
+  type: belongs_to
+  via: category
+- from: LedgerTransaction
+  to: Party
+  type: belongs_to
+  via: party
+- from: LedgerTransaction
+  to: [Department, Location, Project]
+  type: belongs_to
+  via: classification dimensions
+- from: Source
+  to: Company
+  type: belongs_to
+  via: company
+- from: Entity
+  to: Organization
+  type: belongs_to
+  via: organization
+- from: Employee
+  to: Organization
+  type: belongs_to
+  via: organization
+- from: Client
+  to: Organization
+  type: belongs_to
+  via: organization
+- from: PaymentInstrument
+  to: [Entity, Client]
+  type: belongs_to
+  via: owner
+- from: Bill
+  to: Party
+  type: belongs_to
+  via: vendor/party

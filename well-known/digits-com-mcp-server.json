@@ -1,0 +1,28 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+  "name": "com.digits/marketing-site",
+  "title": "Digits - AI-Powered Accounting",
+  "description": "AI-powered accounting software. The world's first Agentic General Ledger (AGL) that auto-books 95%+ of transactions in real time.",
+  "version": "1.0.0",
+  "icons": [
+    {
+      "src": "https://digits.com/favicon/favicon.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": ["any"]
+    },
+    {
+      "src": "https://digits.com/favicon/favicon-192x192.png",
+      "mimeType": "image/png",
+      "sizes": ["192x192"]
+    }
+  ],
+  "websiteUrl": "https://digits.com",
+  "_meta": {
+    "com.digits/discovery": {
+      "llms_txt": "https://digits.com/llms.txt",
+      "openapi": "https://digits.com/openapi.json",
+      "pricing": "https://digits.com/pricing",
+      "demo": "https://digits.com/demo"
+    }
+  }
+}

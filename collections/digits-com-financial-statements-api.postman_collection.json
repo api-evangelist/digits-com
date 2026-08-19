@@ -1,0 +1,690 @@
+{
+  "item": [
+    {
+      "id": "263a5e0d-3dad-4f1d-b880-34975a9beadb",
+      "name": "Financial Statements",
+      "description": {
+        "content": "Balance Sheet, P&L, Cash Flow, Trial Balance, aging reports, and summaries.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cc45c5f2-c526-455e-a0a0-b66704f980a0",
+          "name": "Get the balance sheet",
+          "request": {
+            "name": "Get the balance sheet",
+            "description": {},
+            "url": {
+              "path": [
+                "ledger",
+                "statements",
+                "balance-sheet"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "as_of",
+                  "value": "<date>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "415af5de-812f-4f37-8d7a-1e37b9448fb4",
+              "name": "Balance sheet statement.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ledger",
+                    "statements",
+                    "balance-sheet"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "as_of",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"period_start\": \"2022-01-17\",\n  \"period_end\": \"1953-02-28\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f17c7fd-ecd2-4ab0-8ae2-a6e3fc56deef",
+          "name": "Get the profit and loss statement",
+          "request": {
+            "name": "Get the profit and loss statement",
+            "description": {},
+            "url": {
+              "path": [
+                "ledger",
+                "statements",
+                "profit-and-loss"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<date>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "75444c86-6c12-4d1d-ab30-f452df91fd84",
+              "name": "Profit and loss statement.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ledger",
+                    "statements",
+                    "profit-and-loss"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"period_start\": \"2022-01-17\",\n  \"period_end\": \"1953-02-28\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "42310487-3500-4903-a788-e188da4cc56c",
+          "name": "Get the cash flow statement",
+          "request": {
+            "name": "Get the cash flow statement",
+            "description": {},
+            "url": {
+              "path": [
+                "ledger",
+                "statements",
+                "cash-flow"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<date>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "052ecccf-c8c4-4236-8a61-b2ea6e09ca88",
+              "name": "Cash flow statement.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ledger",
+                    "statements",
+                    "cash-flow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"period_start\": \"2022-01-17\",\n  \"period_end\": \"1953-02-28\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0015d3eb-2ea3-4392-baac-0206c8498d9c",
+          "name": "Get the trial balance",
+          "request": {
+            "name": "Get the trial balance",
+            "description": {},
+            "url": {
+              "path": [
+                "ledger",
+                "statements",
+                "trial-balance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "as_of",
+                  "value": "<date>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4e6df4a-ced7-4259-876b-9068e1e39f6a",
+              "name": "Trial balance statement.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ledger",
+                    "statements",
+                    "trial-balance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "as_of",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"period_start\": \"2022-01-17\",\n  \"period_end\": \"1953-02-28\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec81cc64-e5d7-4cad-8ea9-3e4b2b6303c5",
+          "name": "Get accounts payable aging",
+          "request": {
+            "name": "Get accounts payable aging",
+            "description": {},
+            "url": {
+              "path": [
+                "ledger",
+                "statements",
+                "ap-aging"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d804b7b4-3cdb-4afd-82f1-7481856e0838",
+              "name": "A/P aging report.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ledger",
+                    "statements",
+                    "ap-aging"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"period_start\": \"2022-01-17\",\n  \"period_end\": \"1953-02-28\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0846b23a-3a01-448e-b341-72d0a8c4940a",
+          "name": "Get accounts receivable aging",
+          "request": {
+            "name": "Get accounts receivable aging",
+            "description": {},
+            "url": {
+              "path": [
+                "ledger",
+                "statements",
+                "ar-aging"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fed1e52b-86b6-4a0d-9931-409f5d614cd6",
+              "name": "A/R aging report.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ledger",
+                    "statements",
+                    "ar-aging"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"period_start\": \"2022-01-17\",\n  \"period_end\": \"1953-02-28\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9179dbdb-6b5e-4af9-b6c3-2252ca0337ca",
+          "name": "Summarize ledger data",
+          "request": {
+            "name": "Summarize ledger data",
+            "description": {
+              "content": "Aggregate and summarize ledger data across dimensions and periods.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ledger",
+                "summarize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1c6c9a1e-4327-4698-a031-a8c1c8a7ada2",
+              "name": "Ledger summary.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ledger",
+                    "summarize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://connect.digits.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ledger.read ledger.write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://connect.digits.com/v1/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://connect.digits.com/v1/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "44a32331-06b6-439a-b574-d3348fb066ec",
+    "name": "Digits Connect Chart of Accounts Financial Statements API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Digits Connect API provides programmatic access to the Autonomous General Ledger (AGL), Digits' AI-native general ledger. Partners send raw transaction, party, and dimension data via source sync endpoints, where the AGL researches vendors, enriches profiles, and posts fully categorized entries. Read endpoints return ledger transactions, parties, categories (chart of accounts), dimensions, and standard financial statements.\n\nAuthentication is OAuth 2.0 (authorization code grant). List endpoints use cursor-based pagination. Source sync endpoints are idempotent and deduplicated via the external_id field.\n\nNOTE (API Evangelist honesty note): Digits does expose a real, documented public first-party API (the Digits Connect API) at https://connect.digits.com/v1 with OAuth 2.0 and an interactive reference at https://developer.digits.com. This document is a hand-authored, honest representation of the documented service methods; it is NOT the vendor's machine-generated OpenAPI. The public https://digits.com/openapi.json file describes only marketing-site/MCP-discovery metadata, not the Connect API. Request/response schemas below are summarized, not exhaustive. Verify exact paths, parameters, and payloads against developer.digits.com.\n\nContact Support:\n Name: Digits Developer",
+      "type": "text/plain"
+    }
+  }
+}

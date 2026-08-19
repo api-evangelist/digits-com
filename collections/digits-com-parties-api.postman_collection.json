@@ -1,0 +1,247 @@
+{
+  "item": [
+    {
+      "id": "7bcc25fc-540c-4338-af9f-837379af4923",
+      "name": "Parties",
+      "description": {
+        "content": "Vendors, suppliers, customers, and other business relationships.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "154a551b-bd58-4083-bd95-305d97a61c9e",
+          "name": "List parties",
+          "request": {
+            "name": "List parties",
+            "description": {},
+            "url": {
+              "path": [
+                "ledger",
+                "parties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Maximum number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_token",
+                  "value": "<string>",
+                  "description": "Cursor token from a previous response for the next page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5742ae8c-7a94-4b81-8e72-ccbaa33c97d8",
+              "name": "A page of parties.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ledger",
+                    "parties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"parties\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"kind\": \"vendor\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"kind\": \"customer\"\n    }\n  ],\n  \"next_page_token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0012ce47-8373-4a4e-8ad0-723a43a6e7a1",
+          "name": "Get a party",
+          "request": {
+            "name": "Get a party",
+            "description": {},
+            "url": {
+              "path": [
+                "ledger",
+                "parties",
+                ":partyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "partyId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88f918c2-af97-4bd4-93d2-67fb52254d67",
+              "name": "A single party.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ledger",
+                    "parties",
+                    ":partyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"kind\": \"other\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://connect.digits.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ledger.read ledger.write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://connect.digits.com/v1/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://connect.digits.com/v1/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e2b91225-808d-4e3c-8889-d015c4391013",
+    "name": "Digits Connect Chart of Accounts Parties API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Digits Connect API provides programmatic access to the Autonomous General Ledger (AGL), Digits' AI-native general ledger. Partners send raw transaction, party, and dimension data via source sync endpoints, where the AGL researches vendors, enriches profiles, and posts fully categorized entries. Read endpoints return ledger transactions, parties, categories (chart of accounts), dimensions, and standard financial statements.\n\nAuthentication is OAuth 2.0 (authorization code grant). List endpoints use cursor-based pagination. Source sync endpoints are idempotent and deduplicated via the external_id field.\n\nNOTE (API Evangelist honesty note): Digits does expose a real, documented public first-party API (the Digits Connect API) at https://connect.digits.com/v1 with OAuth 2.0 and an interactive reference at https://developer.digits.com. This document is a hand-authored, honest representation of the documented service methods; it is NOT the vendor's machine-generated OpenAPI. The public https://digits.com/openapi.json file describes only marketing-site/MCP-discovery metadata, not the Connect API. Request/response schemas below are summarized, not exhaustive. Verify exact paths, parameters, and payloads against developer.digits.com.\n\nContact Support:\n Name: Digits Developer",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Digits Connect Chart of Accounts Connections API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://connect.digits.com/v1/oauth/authorize",
+      "accessTokenUrl": "https://connect.digits.com/v1/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Connections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List connected data sources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/connections/sources"
+          },
+          "docs": "List connected data sources"
+        },
+        {
+          "info": {
+            "name": "Sync a connected data source",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.digits.com/v1/connections/sources/sync"
+          },
+          "docs": "Sync a connected data source"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

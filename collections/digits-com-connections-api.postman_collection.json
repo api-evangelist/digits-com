@@ -1,0 +1,209 @@
+{
+  "item": [
+    {
+      "id": "762266ef-3d27-4aed-a69d-00f326ee251e",
+      "name": "Connections",
+      "description": {
+        "content": "Connected data sources feeding the ledger.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0c96f8ee-ecc3-4bae-8bfc-b15c923963c6",
+          "name": "List connected data sources",
+          "request": {
+            "name": "List connected data sources",
+            "description": {},
+            "url": {
+              "path": [
+                "connections",
+                "sources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c4a3cff6-e5cf-4338-bc35-ab78ecfd4fde",
+              "name": "A list of connected sources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    "sources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "efeea94f-7adc-46eb-acb5-214a40c10a32",
+          "name": "Sync a connected data source",
+          "request": {
+            "name": "Sync a connected data source",
+            "description": {},
+            "url": {
+              "path": [
+                "connections",
+                "sources",
+                "sync"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2dacb7fd-6325-4fc2-baf5-7de0453972ad",
+              "name": "Sync accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    "sources",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accepted\": 2210,\n  \"deduplicated\": 4397\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://connect.digits.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ledger.read ledger.write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://connect.digits.com/v1/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://connect.digits.com/v1/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "71b2fc7d-314c-428f-ae8c-a803f2df07a4",
+    "name": "Digits Connect Chart of Accounts Connections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Digits Connect API provides programmatic access to the Autonomous General Ledger (AGL), Digits' AI-native general ledger. Partners send raw transaction, party, and dimension data via source sync endpoints, where the AGL researches vendors, enriches profiles, and posts fully categorized entries. Read endpoints return ledger transactions, parties, categories (chart of accounts), dimensions, and standard financial statements.\n\nAuthentication is OAuth 2.0 (authorization code grant). List endpoints use cursor-based pagination. Source sync endpoints are idempotent and deduplicated via the external_id field.\n\nNOTE (API Evangelist honesty note): Digits does expose a real, documented public first-party API (the Digits Connect API) at https://connect.digits.com/v1 with OAuth 2.0 and an interactive reference at https://developer.digits.com. This document is a hand-authored, honest representation of the documented service methods; it is NOT the vendor's machine-generated OpenAPI. The public https://digits.com/openapi.json file describes only marketing-site/MCP-discovery metadata, not the Connect API. Request/response schemas below are summarized, not exhaustive. Verify exact paths, parameters, and payloads against developer.digits.com.\n\nContact Support:\n Name: Digits Developer",
+      "type": "text/plain"
+    }
+  }
+}

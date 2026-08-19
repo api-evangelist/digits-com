@@ -1,0 +1,60 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Digits Connect Chart of Accounts Sources API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://connect.digits.com/v1/oauth/authorize",
+      "accessTokenUrl": "https://connect.digits.com/v1/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sync source transactions into the AGL",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.digits.com/v1/sources/transactions/sync",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Push raw transactions to the Autonomous General Ledger for vendor research, enrichment, and automatic categorization. Idempotent and deduplicated via external_id."
+        },
+        {
+          "info": {
+            "name": "Sync source parties into the AGL",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.digits.com/v1/sources/parties/sync",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sync source parties into the AGL"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

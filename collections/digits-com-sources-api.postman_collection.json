@@ -1,0 +1,256 @@
+{
+  "item": [
+    {
+      "id": "18130a38-2a89-4491-80f6-3fe509706b30",
+      "name": "Sources",
+      "description": {
+        "content": "Push raw source data into the AGL for enrichment and categorization.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a2647054-ad28-405f-b768-80170ce585dc",
+          "name": "Sync source transactions into the AGL",
+          "request": {
+            "name": "Sync source transactions into the AGL",
+            "description": {
+              "content": "Push raw transactions to the Autonomous General Ledger for vendor research, enrichment, and automatic categorization. Idempotent and deduplicated via external_id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sources",
+                "transactions",
+                "sync"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"transactions\": [\n    {\n      \"external_id\": \"<string>\",\n      \"date\": \"<date>\",\n      \"description\": \"<string>\",\n      \"amount\": {\n        \"amount\": \"<integer>\",\n        \"currency_code\": \"<string>\"\n      }\n    },\n    {\n      \"external_id\": \"<string>\",\n      \"date\": \"<date>\",\n      \"description\": \"<string>\",\n      \"amount\": {\n        \"amount\": \"<integer>\",\n        \"currency_code\": \"<string>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "edd4b493-ee09-4609-aa2a-44585d491844",
+              "name": "Sync accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    "transactions",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"transactions\": [\n    {\n      \"external_id\": \"<string>\",\n      \"date\": \"<date>\",\n      \"description\": \"<string>\",\n      \"amount\": {\n        \"amount\": 2863,\n        \"currency_code\": \"USD\"\n      }\n    },\n    {\n      \"external_id\": \"<string>\",\n      \"date\": \"<date>\",\n      \"description\": \"<string>\",\n      \"amount\": {\n        \"amount\": 1431,\n        \"currency_code\": \"USD\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accepted\": 7243,\n  \"deduplicated\": 1226\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e7d1f97-2bfe-4752-9814-54dc576d2a98",
+          "name": "Sync source parties into the AGL",
+          "request": {
+            "name": "Sync source parties into the AGL",
+            "description": {},
+            "url": {
+              "path": [
+                "sources",
+                "parties",
+                "sync"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"items\": [\n    {\n      \"external_id\": \"<string>\"\n    },\n    {\n      \"external_id\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "26a84c9b-495c-422b-b83f-d6d4782f3503",
+              "name": "Sync accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    "parties",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"items\": [\n    {\n      \"external_id\": \"<string>\"\n    },\n    {\n      \"external_id\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accepted\": 7243,\n  \"deduplicated\": 1226\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://connect.digits.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ledger.read ledger.write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://connect.digits.com/v1/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://connect.digits.com/v1/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "03176626-b7d3-4cf6-88b6-f27a4a6d027d",
+    "name": "Digits Connect Chart of Accounts Sources API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Digits Connect API provides programmatic access to the Autonomous General Ledger (AGL), Digits' AI-native general ledger. Partners send raw transaction, party, and dimension data via source sync endpoints, where the AGL researches vendors, enriches profiles, and posts fully categorized entries. Read endpoints return ledger transactions, parties, categories (chart of accounts), dimensions, and standard financial statements.\n\nAuthentication is OAuth 2.0 (authorization code grant). List endpoints use cursor-based pagination. Source sync endpoints are idempotent and deduplicated via the external_id field.\n\nNOTE (API Evangelist honesty note): Digits does expose a real, documented public first-party API (the Digits Connect API) at https://connect.digits.com/v1 with OAuth 2.0 and an interactive reference at https://developer.digits.com. This document is a hand-authored, honest representation of the documented service methods; it is NOT the vendor's machine-generated OpenAPI. The public https://digits.com/openapi.json file describes only marketing-site/MCP-discovery metadata, not the Connect API. Request/response schemas below are summarized, not exhaustive. Verify exact paths, parameters, and payloads against developer.digits.com.\n\nContact Support:\n Name: Digits Developer",
+      "type": "text/plain"
+    }
+  }
+}

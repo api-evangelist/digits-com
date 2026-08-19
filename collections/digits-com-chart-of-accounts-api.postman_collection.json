@@ -1,0 +1,361 @@
+{
+  "item": [
+    {
+      "id": "788b7800-3db6-4607-8fea-37f95275db27",
+      "name": "Chart of Accounts",
+      "description": {
+        "content": "Ledger categories and dimensional axes (departments, locations, projects).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "911fb471-89cd-4619-8d76-886a1b2161a1",
+          "name": "List ledger categories (chart of accounts)",
+          "request": {
+            "name": "List ledger categories (chart of accounts)",
+            "description": {},
+            "url": {
+              "path": [
+                "ledger",
+                "categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "862a0f2c-1dc4-446c-a18f-905e92fbc575",
+              "name": "A list of ledger categories.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ledger",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"categories\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00f39d15-39cd-4bbb-80dd-a0010c8b3b43",
+          "name": "List departments",
+          "request": {
+            "name": "List departments",
+            "description": {},
+            "url": {
+              "path": [
+                "ledger",
+                "departments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "89b3f520-cfe7-49c7-901a-d5ee6fe378f7",
+              "name": "A list of departments.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ledger",
+                    "departments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "921203ff-8495-4d93-b227-651248e56d26",
+          "name": "List locations",
+          "request": {
+            "name": "List locations",
+            "description": {},
+            "url": {
+              "path": [
+                "ledger",
+                "locations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "75d19469-7ca7-4b73-acc8-a8e9ca00eb7b",
+              "name": "A list of locations.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ledger",
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f8d7424f-3ec0-48ba-92d7-fe7b287f6c6f",
+          "name": "List projects",
+          "request": {
+            "name": "List projects",
+            "description": {},
+            "url": {
+              "path": [
+                "ledger",
+                "projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc038c46-7c7f-4ccf-b59d-51126859a707",
+              "name": "A list of projects.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ledger",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://connect.digits.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ledger.read ledger.write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://connect.digits.com/v1/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://connect.digits.com/v1/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d5cb8539-687d-4d92-9a85-76b5dba0c3e3",
+    "name": "Digits Connect Chart of Accounts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Digits Connect API provides programmatic access to the Autonomous General Ledger (AGL), Digits' AI-native general ledger. Partners send raw transaction, party, and dimension data via source sync endpoints, where the AGL researches vendors, enriches profiles, and posts fully categorized entries. Read endpoints return ledger transactions, parties, categories (chart of accounts), dimensions, and standard financial statements.\n\nAuthentication is OAuth 2.0 (authorization code grant). List endpoints use cursor-based pagination. Source sync endpoints are idempotent and deduplicated via the external_id field.\n\nNOTE (API Evangelist honesty note): Digits does expose a real, documented public first-party API (the Digits Connect API) at https://connect.digits.com/v1 with OAuth 2.0 and an interactive reference at https://developer.digits.com. This document is a hand-authored, honest representation of the documented service methods; it is NOT the vendor's machine-generated OpenAPI. The public https://digits.com/openapi.json file describes only marketing-site/MCP-discovery metadata, not the Connect API. Request/response schemas below are summarized, not exhaustive. Verify exact paths, parameters, and payloads against developer.digits.com.\n\nContact Support:\n Name: Digits Developer",
+      "type": "text/plain"
+    }
+  }
+}

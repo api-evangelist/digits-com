@@ -1,0 +1,404 @@
+{
+  "item": [
+    {
+      "id": "11613cc0-fa3c-4b13-92cc-f3efd79adf26",
+      "name": "Transactions",
+      "description": {
+        "content": "Read AI-categorized ledger transactions and journal entries.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f6b79417-9cbb-4a12-96e3-30295ef0da64",
+          "name": "List ledger transaction entries",
+          "request": {
+            "name": "List ledger transaction entries",
+            "description": {
+              "content": "Returns categorized ledger entries from the AGL. Cursor-paginated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ledger",
+                "transactions",
+                "entries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Maximum number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_token",
+                  "value": "<string>",
+                  "description": "Cursor token from a previous response for the next page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9e553aab-0369-4058-87f6-424ca5ceeeba",
+              "name": "A page of ledger entries.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ledger",
+                    "transactions",
+                    "entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transactions\": [\n    {\n      \"id\": \"string\",\n      \"external_id\": \"string\",\n      \"date\": \"2011-07-08\",\n      \"description\": \"string\",\n      \"amount\": {\n        \"amount\": 1159,\n        \"currency_code\": \"USD\"\n      },\n      \"category_id\": \"string\",\n      \"party_id\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"external_id\": \"string\",\n      \"date\": \"2001-02-28\",\n      \"description\": \"string\",\n      \"amount\": {\n        \"amount\": 3990,\n        \"currency_code\": \"USD\"\n      },\n      \"category_id\": \"string\",\n      \"party_id\": \"string\"\n    }\n  ],\n  \"next_page_token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1541d352-16b0-457b-aefc-ca1e6cf9f4dc",
+          "name": "Query ledger transaction entries",
+          "request": {
+            "name": "Query ledger transaction entries",
+            "description": {
+              "content": "Query entries by date range, category, party, or dimension filters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ledger",
+                "transactions",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\",\n  \"category_id\": \"<string>\",\n  \"party_id\": \"<string>\",\n  \"page_size\": \"<integer>\",\n  \"page_token\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7c13797d-20b9-4049-b356-d17e3758da70",
+              "name": "Matching ledger entries.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ledger",
+                    "transactions",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\",\n  \"category_id\": \"<string>\",\n  \"party_id\": \"<string>\",\n  \"page_size\": \"<integer>\",\n  \"page_token\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transactions\": [\n    {\n      \"id\": \"string\",\n      \"external_id\": \"string\",\n      \"date\": \"2011-07-08\",\n      \"description\": \"string\",\n      \"amount\": {\n        \"amount\": 1159,\n        \"currency_code\": \"USD\"\n      },\n      \"category_id\": \"string\",\n      \"party_id\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"external_id\": \"string\",\n      \"date\": \"2001-02-28\",\n      \"description\": \"string\",\n      \"amount\": {\n        \"amount\": 3990,\n        \"currency_code\": \"USD\"\n      },\n      \"category_id\": \"string\",\n      \"party_id\": \"string\"\n    }\n  ],\n  \"next_page_token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f95169e9-d101-41c1-88d2-83a0d75888cb",
+          "name": "Get a ledger transaction",
+          "request": {
+            "name": "Get a ledger transaction",
+            "description": {},
+            "url": {
+              "path": [
+                "ledger",
+                "transactions",
+                ":transactionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transactionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "898217b1-31b7-4e4f-b5cc-2cefc9817dda",
+              "name": "A single ledger transaction.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ledger",
+                    "transactions",
+                    ":transactionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transactionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"external_id\": \"string\",\n  \"date\": \"1995-07-20\",\n  \"description\": \"string\",\n  \"amount\": {\n    \"amount\": 8723,\n    \"currency_code\": \"USD\"\n  },\n  \"category_id\": \"string\",\n  \"party_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4b418e44-bbf7-4a80-a8e6-db8d232642c7",
+              "name": "Transaction not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ledger",
+                    "transactions",
+                    ":transactionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transactionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://connect.digits.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ledger.read ledger.write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://connect.digits.com/v1/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://connect.digits.com/v1/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "eefb622c-d5e5-4188-953d-863ac901aa25",
+    "name": "Digits Connect Chart of Accounts Transactions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Digits Connect API provides programmatic access to the Autonomous General Ledger (AGL), Digits' AI-native general ledger. Partners send raw transaction, party, and dimension data via source sync endpoints, where the AGL researches vendors, enriches profiles, and posts fully categorized entries. Read endpoints return ledger transactions, parties, categories (chart of accounts), dimensions, and standard financial statements.\n\nAuthentication is OAuth 2.0 (authorization code grant). List endpoints use cursor-based pagination. Source sync endpoints are idempotent and deduplicated via the external_id field.\n\nNOTE (API Evangelist honesty note): Digits does expose a real, documented public first-party API (the Digits Connect API) at https://connect.digits.com/v1 with OAuth 2.0 and an interactive reference at https://developer.digits.com. This document is a hand-authored, honest representation of the documented service methods; it is NOT the vendor's machine-generated OpenAPI. The public https://digits.com/openapi.json file describes only marketing-site/MCP-discovery metadata, not the Connect API. Request/response schemas below are summarized, not exhaustive. Verify exact paths, parameters, and payloads against developer.digits.com.\n\nContact Support:\n Name: Digits Developer",
+      "type": "text/plain"
+    }
+  }
+}

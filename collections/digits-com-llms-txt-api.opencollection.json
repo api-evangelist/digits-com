@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Digits Llms.txt API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Llms.txt",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "LLM-friendly site overview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://digits.com/llms.txt"
+          },
+          "docs": "Returns a curated, Markdown-formatted overview of Digits for AI systems. Includes descriptions and links to key product pages, blog posts, and resources."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

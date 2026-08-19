@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Digits Connect Chart of Accounts Organizations API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://connect.digits.com/v1/oauth/authorize",
+      "accessTokenUrl": "https://connect.digits.com/v1/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Organizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List an organization's client books",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/organizations/clients"
+          },
+          "docs": "List an organization's client books"
+        },
+        {
+          "info": {
+            "name": "Create a client book",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.digits.com/v1/organizations/clients",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a client book"
+        },
+        {
+          "info": {
+            "name": "Bulk-create client books",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.digits.com/v1/organizations/clients/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk-create client books"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

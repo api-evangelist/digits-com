@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Digits Llms.txt .well Known API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": ".well Known",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "MCP metadata (legacy)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://digits.com/.well-known/mcp.json"
+          },
+          "docs": "Returns MCP (Model Context Protocol) site metadata for AI client discovery. This is the legacy informal format. For the spec-compliant MCP Server Card, see /.well-known/mcp/server.json."
+        },
+        {
+          "info": {
+            "name": "MCP Server Card (SEP-1649)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://digits.com/.well-known/mcp/server.json"
+          },
+          "docs": "Returns the MCP Server Card following the official registry schema (SEP-1649). Used by AI agent readiness scanners, the MCP registry, and compatible AI clients for server discovery. Also served at /.well-known/mcp/server-card.json."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,149 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Digits Connect Chart of Accounts Financial Statements API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://connect.digits.com/v1/oauth/authorize",
+      "accessTokenUrl": "https://connect.digits.com/v1/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Financial Statements",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the balance sheet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/statements/balance-sheet",
+            "params": [
+              {
+                "name": "as_of",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the balance sheet"
+        },
+        {
+          "info": {
+            "name": "Get the profit and loss statement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/statements/profit-and-loss",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the profit and loss statement"
+        },
+        {
+          "info": {
+            "name": "Get the cash flow statement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/statements/cash-flow",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the cash flow statement"
+        },
+        {
+          "info": {
+            "name": "Get the trial balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/statements/trial-balance",
+            "params": [
+              {
+                "name": "as_of",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the trial balance"
+        },
+        {
+          "info": {
+            "name": "Get accounts payable aging",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/statements/ap-aging"
+          },
+          "docs": "Get accounts payable aging"
+        },
+        {
+          "info": {
+            "name": "Get accounts receivable aging",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/statements/ar-aging"
+          },
+          "docs": "Get accounts receivable aging"
+        },
+        {
+          "info": {
+            "name": "Summarize ledger data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.digits.com/v1/ledger/summarize",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Aggregate and summarize ledger data across dimensions and periods."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

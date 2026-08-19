@@ -1,0 +1,88 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Digits Connect Chart of Accounts Transactions API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://connect.digits.com/v1/oauth/authorize",
+      "accessTokenUrl": "https://connect.digits.com/v1/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Transactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List ledger transaction entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/transactions/entries",
+            "params": [
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return per page."
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Cursor token from a previous response for the next page."
+              }
+            ]
+          },
+          "docs": "Returns categorized ledger entries from the AGL. Cursor-paginated."
+        },
+        {
+          "info": {
+            "name": "Query ledger transaction entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://connect.digits.com/v1/ledger/transactions/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query entries by date range, category, party, or dimension filters."
+        },
+        {
+          "info": {
+            "name": "Get a ledger transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/transactions/:transactionId",
+            "params": [
+              {
+                "name": "transactionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a ledger transaction"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

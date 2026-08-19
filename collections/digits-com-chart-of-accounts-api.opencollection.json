@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Digits Connect Chart of Accounts API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://connect.digits.com/v1/oauth/authorize",
+      "accessTokenUrl": "https://connect.digits.com/v1/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Chart of Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List ledger categories (chart of accounts)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/categories"
+          },
+          "docs": "List ledger categories (chart of accounts)"
+        },
+        {
+          "info": {
+            "name": "List departments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/departments"
+          },
+          "docs": "List departments"
+        },
+        {
+          "info": {
+            "name": "List locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/locations"
+          },
+          "docs": "List locations"
+        },
+        {
+          "info": {
+            "name": "List projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/projects"
+          },
+          "docs": "List projects"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

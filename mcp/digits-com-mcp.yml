@@ -5,11 +5,10 @@ source: https://help.digits.com/firms-connections/digits-mcp
 server:
   name: Digits MCP
   transport: http
-  description: >-
-    Digits provides a hosted MCP (Model Context Protocol) server that connects AI clients such as
-    ChatGPT and Claude directly to a Digits account — no developer app required. Setup instructions
-    are published in the Digits Help Center. A spec-compliant MCP Server Card (SEP-1649) for the
-    marketing site is also published at https://digits.com/.well-known/mcp/server.json.
+  description: Digits provides a hosted MCP (Model Context Protocol) server that connects AI clients such
+    as ChatGPT and Claude directly to a Digits account — no developer app required. Setup instructions
+    are published in the Digits Help Center. A spec-compliant MCP Server Card (SEP-1649) for the marketing
+    site is also published at https://digits.com/.well-known/mcp/server.json.
   setup_docs: https://help.digits.com/firms-connections/digits-mcp
   server_card: https://digits.com/.well-known/mcp/server.json
   server_card_file: digits-mcp-server.json
@@ -18,9 +17,6 @@ discovery:
   llms_txt: https://digits.com/llms.txt
   openapi: https://digits.com/openapi.json
   connect_openapi: https://developer.digits.com/openapi
-# Candidate tool surface DERIVED from the Digits Connect API reference (developer.digits.com/reference).
-# The hosted MCP server tool list is not enumerated in the public server card; these map the documented
-# read operations an accounting agent would most likely expose. status: candidate for the tool list.
 tools_status: candidate
 candidate_tools:
 - name: get_company
@@ -44,3 +40,12 @@ candidate_tools:
 - name: get_cash_flow
   description: Retrieve the cash-flow statement.
   source_operation: ledgerstatementsservice_cashflow
+deployment:
+  mode: none
+  endpoint: https://digits.com/.well-known/mcp/server.json.
+  verified: probed
+  probe: dead
+  note: the endpoint this manifest claimed did not answer; recorded as none rather than deleted so the
+    claim stays auditable
+  checked: '2026-08-12'
+  source: catalog MCP census

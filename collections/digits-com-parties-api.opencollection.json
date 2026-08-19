@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Digits Connect Chart of Accounts Parties API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://connect.digits.com/v1/oauth/authorize",
+      "accessTokenUrl": "https://connect.digits.com/v1/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Parties",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List parties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/parties",
+            "params": [
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return per page."
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Cursor token from a previous response for the next page."
+              }
+            ]
+          },
+          "docs": "List parties"
+        },
+        {
+          "info": {
+            "name": "Get a party",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://connect.digits.com/v1/ledger/parties/:partyId",
+            "params": [
+              {
+                "name": "partyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a party"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -27,6 +27,13 @@ tags:
 - Bookkeeping
 - Finance
 - General Ledger
+- Artificial Intelligence
+- Fintech
+tags_raw:
+- Accounting
+- Bookkeeping
+- Finance
+- General Ledger
 - AI
 - FinTech
 created: '2026-07-01'
@@ -36,6 +43,10 @@ apis:
 - aid: digits-com:digits-com-webhooks-api
   name: Digits Webhooks API
   tags:
+  - Webhook
+  - Event
+  - Notification
+  tags_raw:
   - Webhooks
   - Events
   - Notifications
@@ -50,6 +61,9 @@ apis:
 - aid: digits-com:digits-com-mcp-server
   name: Digits MCP Server
   tags:
+  - MCP
+  - AI Agents
+  tags_raw:
   - MCP
   - AI Agents
   - Model Context Protocol
@@ -118,6 +132,8 @@ apis:
   humanURL: https://developer.digits.com
   baseURL: https://connect.digits.com/v1
   tags:
+  - Organization
+  tags_raw:
   - Organizations
   properties:
   - type: OpenAPI
@@ -166,6 +182,8 @@ apis:
   humanURL: https://developer.digits.com
   baseURL: https://connect.digits.com/v1
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
@@ -182,6 +200,8 @@ apis:
   humanURL: https://developer.digits.com
   baseURL: https://connect.digits.com/v1
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI

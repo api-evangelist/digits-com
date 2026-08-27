@@ -56,8 +56,9 @@ apis:
   properties:
   - url: https://developer.digits.com
     type: Documentation
-  description: Receive event notifications from Digits at a configured webhook endpoint; Digits POSTs
-    a JSON event body and expects a 2xx acknowledgment (WebhookService.receiveWebhookEvent).
+  description: >-
+    Receive event notifications from Digits at a configured webhook endpoint; Digits POSTs a JSON event
+    body and expects a 2xx acknowledgment (WebhookService.receiveWebhookEvent).
 - aid: digits-com:digits-com-mcp-server
   name: Digits MCP Server
   tags:
@@ -75,9 +76,10 @@ apis:
     type: Documentation
   - url: https://digits.com/.well-known/mcp/server.json
     type: Documentation
-  description: Model Context Protocol server that lets AI clients like ChatGPT and Claude connect directly
-    to Digits to query the ledger in natural language. Discovery is published as an MCP Server Card at
-    /.well-known/mcp/server.json (registry schema SEP-1649).
+  description: >-
+    Model Context Protocol server that lets AI clients like ChatGPT and Claude connect directly to Digits
+    to query the ledger in natural language. Discovery is published as an MCP Server Card at /.well-known/mcp/server.json
+    (registry schema SEP-1649).
 - aid: digits-com:digits-com-chart-of-accounts-api
   name: Digits Chart of Accounts API
   description: Ledger categories and dimensional axes (departments, locations, projects).
@@ -212,6 +214,36 @@ apis:
     url: collections/digits-com.postman_collection.json
   - type: OpenCollection
     url: collections/digits-com.opencollection.json
+- aid: digits-com:digits-com-llms-txt-api
+  name: Digits Llms.txt API
+  description: The Llms.txt API from Digits — 1 operation(s) for llms.txt.
+  humanURL: https://developer.digits.com
+  baseURL: https://connect.digits.com/v1
+  tags:
+  - Llms.txt
+  properties:
+  - type: OpenAPI
+    url: openapi/digits-com-llms-txt-api-openapi.yml
+- aid: digits-com:digits-com-sitemap-xml-api
+  name: Digits Sitemap.xml API
+  description: The Sitemap.xml API from Digits — 1 operation(s) for sitemap.xml.
+  humanURL: https://developer.digits.com
+  baseURL: https://connect.digits.com/v1
+  tags:
+  - Sitemap.xml
+  properties:
+  - type: OpenAPI
+    url: openapi/digits-com-sitemap-xml-api-openapi.yml
+- aid: digits-com:digits-com-well-known-api
+  name: Digits .well Known API
+  description: The .well Known API from Digits — 2 operation(s) for .well known.
+  humanURL: https://developer.digits.com
+  baseURL: https://connect.digits.com/v1
+  tags:
+  - .well Known
+  properties:
+  - type: OpenAPI
+    url: openapi/digits-com-well-known-api-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/digits-com-agentic-access.yml

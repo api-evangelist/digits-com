@@ -8,6 +8,18 @@ description: Digits is an AI-native accounting and bookkeeping platform for star
   send raw transaction, party, and dimension data for AI categorization and vendor enrichment, and read
   back ledger entries and financial statements. Digits also publishes an MCP server for AI agents (ChatGPT,
   Claude) to query the ledger.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve

@@ -232,6 +232,8 @@ apis:
   humanURL: https://developer.digits.com
   baseURL: https://connect.digits.com/v1
   tags:
+  - llms-txt
+  tags_raw:
   - Llms.txt
   properties:
   - type: OpenAPI

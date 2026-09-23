@@ -1,16 +1,13 @@
 {
   "provider": "digits-com",
   "sources": [
-    "digits-com-chart-of-accounts-api-openapi.yml",
-    "digits-com-connections-api-openapi.yml",
-    "digits-com-financial-statements-api-openapi.yml",
-    "digits-com-organizations-api-openapi.yml",
-    "digits-com-parties-api-openapi.yml",
-    "digits-com-sources-api-openapi.yml",
-    "digits-com-transactions-api-openapi.yml",
-    "digits-com-webhooks-api-openapi.yml"
+    "_original/digits-com-openapi-original.json",
+    "_original/digits-com-openapi.yml"
   ],
   "outputs": [
+    "digits-com-well-known-api-openapi.yml",
+    "digits-com-llms-txt-api-openapi.yml",
+    "digits-com-sitemap-xml-api-openapi.yml",
     "digits-com-chart-of-accounts-api-openapi.yml",
     "digits-com-connections-api-openapi.yml",
     "digits-com-financial-statements-api-openapi.yml",
@@ -23,6 +20,30 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "digits-com-openapi-original.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "digits-com-openapi-original.json: tagged paths GET /llms.txt -> Llms.txt",
+    "digits-com-openapi-original.json: tagged paths GET /sitemap.xml -> Sitemap.xml",
+    "digits-com-openapi-original.json: tagged paths GET /.well-known/mcp.json -> .well Known",
+    "digits-com-openapi-original.json: tagged paths GET /.well-known/mcp/server.json -> .well Known",
+    "digits-com-openapi-original.json: declared missing tag: .well Known",
+    "digits-com-openapi-original.json: declared missing tag: Llms.txt",
+    "digits-com-openapi-original.json: declared missing tag: Sitemap.xml",
+    "digits-com-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "digits-com-chart-of-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "digits-com-connections-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "digits-com-financial-statements-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "digits-com-llms-txt-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "digits-com-organizations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "digits-com-parties-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "digits-com-sitemap-xml-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "digits-com-sources-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "digits-com-transactions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "digits-com-webhooks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "digits-com-well-known-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

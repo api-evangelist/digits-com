@@ -1,14 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Digits Connect Chart of Accounts Organizations API
+  title: Digits Connect Organizations API
   version: 1.0.0
-  description: 'The Digits Connect API provides programmatic access to the Autonomous General Ledger (AGL), Digits'' AI-native general ledger. Partners send raw transaction, party, and dimension data via source sync endpoints, where the AGL researches vendors, enriches profiles, and posts fully categorized entries. Read endpoints return ledger transactions, parties, categories (chart of accounts), dimensions, and standard financial statements.
-
-
-    Authentication is OAuth 2.0 (authorization code grant). List endpoints use cursor-based pagination. Source sync endpoints are idempotent and deduplicated via the external_id field.
-
-
-    NOTE (API Evangelist honesty note): Digits does expose a real, documented public first-party API (the Digits Connect API) at https://connect.digits.com/v1 with OAuth 2.0 and an interactive reference at https://developer.digits.com. This document is a hand-authored, honest representation of the documented service methods; it is NOT the vendor''s machine-generated OpenAPI. The public https://digits.com/openapi.json file describes only marketing-site/MCP-discovery metadata, not the Connect API. Request/response schemas below are summarized, not exhaustive. Verify exact paths, parameters, and payloads against developer.digits.com.'
+  description: The Digits Connect API provides programmatic access to the Autonomous General Ledger (AGL), Digits' AI-native general ledger.
   contact:
     name: Digits Developer
     url: https://developer.digits.com

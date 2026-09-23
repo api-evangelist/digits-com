@@ -1,0 +1,29 @@
+# Front Door AI Index — digits-com — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: digits-com
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: digits.com
+  final_host: digits.com
+  ownership: own
+  owner: digits-com
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 42
+  host_score: 42
+  density: 35.93
+  words: 1169
+  tiers:
+    agentic: 7
+    core: 35
+    model: 0
+  ambiguous: 2
+  top_terms:
+    AI: 34
+    agentic: 4
+    MCP: 3
+    automation: 2
+    ML: 1

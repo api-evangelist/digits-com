@@ -78,15 +78,6 @@ paths:
           description: Transaction not found.
 components:
   schemas:
-    TransactionList:
-      type: object
-      properties:
-        transactions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Transaction'
-        next_page_token:
-          type: string
     TransactionQuery:
       type: object
       properties:
@@ -103,6 +94,15 @@ components:
         page_size:
           type: integer
         page_token:
+          type: string
+    TransactionList:
+      type: object
+      properties:
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
+        next_page_token:
           type: string
     Transaction:
       type: object
@@ -132,13 +132,6 @@ components:
           type: string
           example: USD
   parameters:
-    PageToken:
-      name: page_token
-      in: query
-      required: false
-      schema:
-        type: string
-      description: Cursor token from a previous response for the next page.
     PageSize:
       name: page_size
       in: query
@@ -146,6 +139,13 @@ components:
       schema:
         type: integer
       description: Maximum number of items to return per page.
+    PageToken:
+      name: page_token
+      in: query
+      required: false
+      schema:
+        type: string
+      description: Cursor token from a previous response for the next page.
   securitySchemes:
     OAuth2:
       type: oauth2

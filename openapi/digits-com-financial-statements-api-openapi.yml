@@ -144,13 +144,6 @@ components:
           items:
             type: object
   parameters:
-    EndDate:
-      name: end_date
-      in: query
-      required: false
-      schema:
-        type: string
-        format: date
     StartDate:
       name: start_date
       in: query
@@ -160,6 +153,13 @@ components:
         format: date
     AsOfDate:
       name: as_of
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+    EndDate:
+      name: end_date
       in: query
       required: false
       schema:

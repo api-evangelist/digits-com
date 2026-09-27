@@ -34,6 +34,9 @@ accessModel:
   generated: '2026-07-22'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/digits-com.png
+x-docs-platform: readme
+x-docs-platform-confidence: high
+x-docs-platform-checked: 2026-09-25
 tags:
 - Accounting
 - Bookkeeping
@@ -52,25 +55,6 @@ created: '2026-07-01'
 modified: '2026-08-08'
 specificationVersion: '0.23'
 apis:
-- aid: digits-com:digits-com-webhooks-api
-  name: Digits Webhooks API
-  tags:
-  - Webhook
-  - Event
-  - Notification
-  tags_raw:
-  - Webhooks
-  - Events
-  - Notifications
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.digits.com
-  baseURL: https://connect.digits.com/v1
-  properties:
-  - url: https://developer.digits.com
-    type: Documentation
-  description: >-
-    Receive event notifications from Digits at a configured webhook endpoint; Digits POSTs a JSON event
-    body and expects a 2xx acknowledgment (WebhookService.receiveWebhookEvent).
 - aid: digits-com:digits-com-mcp-server
   name: Digits MCP Server
   tags:
@@ -82,7 +66,6 @@ apis:
   - Model Context Protocol
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://developer.digits.com
-  baseURL: https://digits.com
   properties:
   - url: https://developer.digits.com
     type: Documentation
@@ -210,13 +193,18 @@ apis:
     url: collections/digits-com.opencollection.json
 - aid: digits-com:digits-com-webhooks-api
   name: Digits Webhooks API
-  description: Event delivery to partner-configured endpoints.
+  description: Receive event notifications from Digits at a configured webhook endpoint; Digits POSTs a
+    JSON event body and expects a 2xx acknowledgment (WebhookService.receiveWebhookEvent).
   humanURL: https://developer.digits.com
   baseURL: https://connect.digits.com/v1
   tags:
   - Webhook
+  - Event
+  - Notification
   tags_raw:
   - Webhooks
+  - Events
+  - Notifications
   properties:
   - type: OpenAPI
     url: openapi/digits-com-webhooks-api-openapi.yml
@@ -226,6 +214,7 @@ apis:
     url: collections/digits-com.postman_collection.json
   - type: OpenCollection
     url: collections/digits-com.opencollection.json
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 - aid: digits-com:digits-com-llms-txt-api
   name: Digits Llms.txt API
   description: The Llms.txt API from Digits — 1 operation(s) for llms.txt.

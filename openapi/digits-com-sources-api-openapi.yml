@@ -59,13 +59,16 @@ paths:
                 $ref: '#/components/schemas/SyncResult'
 components:
   schemas:
-    SyncResult:
+    SyncBatch:
       type: object
       properties:
-        accepted:
-          type: integer
-        deduplicated:
-          type: integer
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              external_id:
+                type: string
     SourceTransactionSync:
       type: object
       required:
@@ -88,16 +91,6 @@ components:
                 type: string
               amount:
                 $ref: '#/components/schemas/Money'
-    SyncBatch:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              external_id:
-                type: string
     Money:
       type: object
       properties:
@@ -107,6 +100,13 @@ components:
         currency_code:
           type: string
           example: USD
+    SyncResult:
+      type: object
+      properties:
+        accepted:
+          type: integer
+        deduplicated:
+          type: integer
   securitySchemes:
     OAuth2:
       type: oauth2

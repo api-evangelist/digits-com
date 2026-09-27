@@ -55,13 +55,6 @@ paths:
                 $ref: '#/components/schemas/Party'
 components:
   parameters:
-    PageToken:
-      name: page_token
-      in: query
-      required: false
-      schema:
-        type: string
-      description: Cursor token from a previous response for the next page.
     PageSize:
       name: page_size
       in: query
@@ -69,7 +62,23 @@ components:
       schema:
         type: integer
       description: Maximum number of items to return per page.
+    PageToken:
+      name: page_token
+      in: query
+      required: false
+      schema:
+        type: string
+      description: Cursor token from a previous response for the next page.
   schemas:
+    PartyList:
+      type: object
+      properties:
+        parties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Party'
+        next_page_token:
+          type: string
     Party:
       type: object
       properties:
@@ -83,15 +92,6 @@ components:
           - vendor
           - customer
           - other
-    PartyList:
-      type: object
-      properties:
-        parties:
-          type: array
-          items:
-            $ref: '#/components/schemas/Party'
-        next_page_token:
-          type: string
   securitySchemes:
     OAuth2:
       type: oauth2

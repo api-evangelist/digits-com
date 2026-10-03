@@ -77,24 +77,22 @@ paths:
         '404':
           description: Transaction not found.
 components:
+  parameters:
+    PageSize:
+      name: page_size
+      in: query
+      required: false
+      schema:
+        type: integer
+      description: Maximum number of items to return per page.
+    PageToken:
+      name: page_token
+      in: query
+      required: false
+      schema:
+        type: string
+      description: Cursor token from a previous response for the next page.
   schemas:
-    TransactionQuery:
-      type: object
-      properties:
-        start_date:
-          type: string
-          format: date
-        end_date:
-          type: string
-          format: date
-        category_id:
-          type: string
-        party_id:
-          type: string
-        page_size:
-          type: integer
-        page_token:
-          type: string
     TransactionList:
       type: object
       properties:
@@ -104,6 +102,15 @@ components:
             $ref: '#/components/schemas/Transaction'
         next_page_token:
           type: string
+    Money:
+      type: object
+      properties:
+        amount:
+          type: integer
+          description: Minor units (e.g. cents).
+        currency_code:
+          type: string
+          example: USD
     Transaction:
       type: object
       properties:
@@ -122,30 +129,23 @@ components:
           type: string
         party_id:
           type: string
-    Money:
+    TransactionQuery:
       type: object
       properties:
-        amount:
-          type: integer
-          description: Minor units (e.g. cents).
-        currency_code:
+        start_date:
           type: string
-          example: USD
-  parameters:
-    PageSize:
-      name: page_size
-      in: query
-      required: false
-      schema:
-        type: integer
-      description: Maximum number of items to return per page.
-    PageToken:
-      name: page_token
-      in: query
-      required: false
-      schema:
-        type: string
-      description: Cursor token from a previous response for the next page.
+          format: date
+        end_date:
+          type: string
+          format: date
+        category_id:
+          type: string
+        party_id:
+          type: string
+        page_size:
+          type: integer
+        page_token:
+          type: string
   securitySchemes:
     OAuth2:
       type: oauth2

@@ -70,15 +70,6 @@ components:
         type: string
       description: Cursor token from a previous response for the next page.
   schemas:
-    PartyList:
-      type: object
-      properties:
-        parties:
-          type: array
-          items:
-            $ref: '#/components/schemas/Party'
-        next_page_token:
-          type: string
     Party:
       type: object
       properties:
@@ -92,6 +83,15 @@ components:
           - vendor
           - customer
           - other
+    PartyList:
+      type: object
+      properties:
+        parties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Party'
+        next_page_token:
+          type: string
   securitySchemes:
     OAuth2:
       type: oauth2

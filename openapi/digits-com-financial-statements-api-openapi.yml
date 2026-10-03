@@ -127,6 +127,28 @@ paths:
               schema:
                 type: object
 components:
+  parameters:
+    StartDate:
+      name: start_date
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+    EndDate:
+      name: end_date
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+    AsOfDate:
+      name: as_of
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
   schemas:
     Statement:
       type: object
@@ -143,28 +165,6 @@ components:
           type: array
           items:
             type: object
-  parameters:
-    StartDate:
-      name: start_date
-      in: query
-      required: false
-      schema:
-        type: string
-        format: date
-    AsOfDate:
-      name: as_of
-      in: query
-      required: false
-      schema:
-        type: string
-        format: date
-    EndDate:
-      name: end_date
-      in: query
-      required: false
-      schema:
-        type: string
-        format: date
   securitySchemes:
     OAuth2:
       type: oauth2

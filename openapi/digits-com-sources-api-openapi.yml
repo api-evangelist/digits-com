@@ -69,6 +69,22 @@ components:
             properties:
               external_id:
                 type: string
+    Money:
+      type: object
+      properties:
+        amount:
+          type: integer
+          description: Minor units (e.g. cents).
+        currency_code:
+          type: string
+          example: USD
+    SyncResult:
+      type: object
+      properties:
+        accepted:
+          type: integer
+        deduplicated:
+          type: integer
     SourceTransactionSync:
       type: object
       required:
@@ -91,22 +107,6 @@ components:
                 type: string
               amount:
                 $ref: '#/components/schemas/Money'
-    Money:
-      type: object
-      properties:
-        amount:
-          type: integer
-          description: Minor units (e.g. cents).
-        currency_code:
-          type: string
-          example: USD
-    SyncResult:
-      type: object
-      properties:
-        accepted:
-          type: integer
-        deduplicated:
-          type: integer
   securitySchemes:
     OAuth2:
       type: oauth2

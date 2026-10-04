@@ -1,0 +1,50 @@
+slug: digits-com
+provider: Digits
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Chart Of Accounts
+  spec_file: digits-com-chart-of-accounts-api-openapi.yml
+  capability_id: BC-200.10
+  capability_id_l1: BC-200
+  capability_name: General Ledger Management
+  confidence: 0.9
+  evidence: GET /ledger/categories 'List ledger categories (chart of accounts)'; also departments, locations,
+    projects
+  reason: Chart of accounts and ledger dimensions are core General Ledger Management.
+- tag: Transactions
+  spec_file: digits-com-transactions-api-openapi.yml
+  capability_id: BC-200.10
+  capability_id_l1: BC-200
+  capability_name: General Ledger Management
+  confidence: 0.9
+  evidence: GET /ledger/transactions/entries 'List ledger transaction entries'; schema Transaction
+  reason: Ledger journal entries and transaction queries are core General Ledger Management.
+- tag: Financial Statements
+  spec_file: digits-com-financial-statements-api-openapi.yml
+  capability_id: BC-200.60
+  capability_id_l1: BC-200
+  capability_name: Financial Reporting Management
+  confidence: 0.85
+  evidence: GET /ledger/statements/balance-sheet 'Get the balance sheet'; 'Get the profit and loss statement';
+    'Get the cash flow statement'
+  reason: Production of financial statements from the ledger is financial reporting.
+- tag: Sources
+  spec_file: digits-com-sources-api-openapi.yml
+  capability_id: BC-200.10
+  capability_id_l1: BC-200
+  capability_name: General Ledger Management
+  confidence: 0.75
+  evidence: POST /sources/transactions/sync 'Sync source transactions into the AGL'
+  reason: Ingesting raw transactions and parties into the general ledger for booking is general ledger
+    management, albeit framed as a sync operation.

@@ -248,6 +248,9 @@ apis:
   - type: OpenAPI
     url: openapi/digits-com-well-known-api-openapi.yml
 common:
+- type: CapabilityMap
+  url: capabilities/digits-com-capability-edges.yml
+  name: Digits Business Capability Map
 - type: AgenticAccess
   url: agentic-access/digits-com-agentic-access.yml
 - type: TrustCenter

@@ -59,16 +59,6 @@ paths:
                 $ref: '#/components/schemas/SyncResult'
 components:
   schemas:
-    SyncBatch:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              external_id:
-                type: string
     Money:
       type: object
       properties:
@@ -107,6 +97,16 @@ components:
                 type: string
               amount:
                 $ref: '#/components/schemas/Money'
+    SyncBatch:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              external_id:
+                type: string
   securitySchemes:
     OAuth2:
       type: oauth2

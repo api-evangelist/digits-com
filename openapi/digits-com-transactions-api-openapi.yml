@@ -77,31 +77,7 @@ paths:
         '404':
           description: Transaction not found.
 components:
-  parameters:
-    PageSize:
-      name: page_size
-      in: query
-      required: false
-      schema:
-        type: integer
-      description: Maximum number of items to return per page.
-    PageToken:
-      name: page_token
-      in: query
-      required: false
-      schema:
-        type: string
-      description: Cursor token from a previous response for the next page.
   schemas:
-    TransactionList:
-      type: object
-      properties:
-        transactions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Transaction'
-        next_page_token:
-          type: string
     Money:
       type: object
       properties:
@@ -111,6 +87,23 @@ components:
         currency_code:
           type: string
           example: USD
+    TransactionQuery:
+      type: object
+      properties:
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        category_id:
+          type: string
+        party_id:
+          type: string
+        page_size:
+          type: integer
+        page_token:
+          type: string
     Transaction:
       type: object
       properties:
@@ -129,23 +122,30 @@ components:
           type: string
         party_id:
           type: string
-    TransactionQuery:
+    TransactionList:
       type: object
       properties:
-        start_date:
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
+        next_page_token:
           type: string
-          format: date
-        end_date:
-          type: string
-          format: date
-        category_id:
-          type: string
-        party_id:
-          type: string
-        page_size:
-          type: integer
-        page_token:
-          type: string
+  parameters:
+    PageSize:
+      name: page_size
+      in: query
+      required: false
+      schema:
+        type: integer
+      description: Maximum number of items to return per page.
+    PageToken:
+      name: page_token
+      in: query
+      required: false
+      schema:
+        type: string
+      description: Cursor token from a previous response for the next page.
   securitySchemes:
     OAuth2:
       type: oauth2

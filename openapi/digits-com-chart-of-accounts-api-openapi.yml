@@ -72,6 +72,13 @@ paths:
                 type: object
 components:
   schemas:
+    CategoryList:
+      type: object
+      properties:
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
     Category:
       type: object
       properties:
@@ -81,13 +88,6 @@ components:
           type: string
         type:
           type: string
-    CategoryList:
-      type: object
-      properties:
-        categories:
-          type: array
-          items:
-            $ref: '#/components/schemas/Category'
   securitySchemes:
     OAuth2:
       type: oauth2

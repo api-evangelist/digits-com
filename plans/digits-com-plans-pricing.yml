@@ -1,89 +1,71 @@
-specification: API Commons Plans
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
-provider: Digits
-providerId: digits-com
-created: '2026-07-01'
-modified: '2026-07-01'
-reconciled: false
-tags:
-- Accounting
-- Bookkeeping
-- Finance
-- General Ledger
-- AI
-- FinTech
-- Plans
-description: >-
-  Two distinct pricing surfaces exist for Digits. (1) The Digits Connect API
-  itself is free to developers and partners - no partner fees, no usage
-  paywalls, and no marketplace lock-ins - per Digits' launch announcement; rate
-  limits exist to prevent abuse but are not tied to monetization. (2) The Digits
-  accounting/bookkeeping product is a paid SaaS subscription sold to startups
-  and accounting firms; published, reconciled seat/tier pricing is not
-  represented here and should be confirmed on digits.com/pricing.
-notes: >-
-  API access is explicitly free at launch. Product subscription pricing is not
-  reconciled in this artifact - verify current tiers on the Digits pricing page.
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-07'
+method: searched
+source: https://digits.com/pricing/
 sources:
-- https://developer.digits.com
-- https://digits.com
-- https://www.accountingtoday.com/news/digits-launches-free-api
-- https://www.cpapracticeadvisor.com/2025/10/28/digits-unveils-connect-api-for-faster-ai-powered-integrations/171802/
+- https://digits.com/pricing/
+- https://digits.com/pricing
+provenance:
+  tool: all/0-working/economics/harvest_pricing.py
+  run: 20261007T104522
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: tiered-subscription
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-07'
+published: true
+note: Accounting SaaS pricing page; Developer API & MCP included in all plans (described elsewhere as
+  'Free, open, extensible') but not separately priced. 30-day free trial; no setup fees; each business
+  needs its own subscription.
+plan_count: 3
+currency: USD
 plans:
-- id: digits-com-connect-api-free
-  name: Connect API (Free)
-  type: free
-  description: >-
-    Free programmatic access to the Autonomous General Ledger via the Digits
-    Connect API. No partner fees, usage paywalls, or marketplace lock-ins.
-    Rate limits apply to prevent abuse and can be raised for legitimate use.
-  entries:
-  - label: API Requests
-    name: api_requests
-    type: free
-    metric: requests
-    limit: -1
-    timeFrame: month
-    geo: global
-    unit: 1
-    price: free
-    userMultiplied: false
-  elements:
-  - name: Transactions
-  - name: Source Sync
-  - name: Parties
-  - name: Chart of Accounts
-  - name: Financial Statements
-  - name: Connections
-  - name: Organizations
-  - name: Webhooks
-  - name: MCP Server
-- id: digits-com-product-subscription
-  name: Digits Product Subscription
-  type: subscription
-  description: >-
-    Paid SaaS subscription to the Digits accounting/bookkeeping product for
-    startups and accounting firms. Published tier and seat pricing is not
-    reconciled here; confirm on the Digits pricing page.
-  entries:
-  - label: Subscription
-    name: subscription
-    type: recurring
-    metric: subscription
-    limit: -1
-    timeFrame: month
-    geo: global
-    unit: 1
-    price: see digits.com/pricing
-    userMultiplied: false
-  elements:
-  - name: Real-time Bookkeeping
-  - name: AI Bill Pay
-  - name: Invoicing
-  - name: Financial Reporting
-  - name: Agentic Close
-  - name: Ask Digits
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+- name: Essentials
+  price_text: $65 /mo
+  price: 65
+  currency: USD
+  period: month
+  included_quota: Solopreneurs and early-stage businesses; core accounting, Developer API & MCP included
+- name: Core
+  price_text: $100 /mo
+  price: 100
+  currency: USD
+  period: month
+  included_quota: Small businesses and growing companies; adds Dimensional Accounting, Automated Schedules
+- name: Pro
+  price_text: $250 /mo
+  price: 250
+  currency: USD
+  period: month
+  included_quota: Scaling businesses with internal finance teams; adds Custom Reports, Custom Dashboards,
+    Budget vs. Actuals (Coming soon)
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - subscription
+  units: []
+  plans:
+  - name: Essentials
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Core
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Pro
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month

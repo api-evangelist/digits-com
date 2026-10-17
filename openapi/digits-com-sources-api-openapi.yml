@@ -59,15 +59,6 @@ paths:
                 $ref: '#/components/schemas/SyncResult'
 components:
   schemas:
-    Money:
-      type: object
-      properties:
-        amount:
-          type: integer
-          description: Minor units (e.g. cents).
-        currency_code:
-          type: string
-          example: USD
     SyncResult:
       type: object
       properties:
@@ -107,6 +98,15 @@ components:
             properties:
               external_id:
                 type: string
+    Money:
+      type: object
+      properties:
+        amount:
+          type: integer
+          description: Minor units (e.g. cents).
+        currency_code:
+          type: string
+          example: USD
   securitySchemes:
     OAuth2:
       type: oauth2

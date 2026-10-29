@@ -1,4 +1,4 @@
-# Digits (digits-com)
+# Digits
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,205 +66,174 @@
 
 Digits is an AI-native accounting and bookkeeping platform for startups and their accountants, built around the Autonomous General Ledger (AGL) that auto-books the majority of transactions in real time. The Digits Connect API opens the AGL programmatically over REST with OAuth 2.0, letting partners send raw transaction, party, and dimension data for AI categorization and vendor enrichment, and read back ledger entries and financial statements. Digits also publishes an MCP server for AI agents (ChatGPT, Claude) to query the ledger.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/digits-com/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/digits-com/refs/heads/main/apis.yml)
+**Areas:** Accounting · Bookkeeping · Finance · General Ledger · Artificial Intelligence · Fintech
 
-## API Availability
+## Digits on APIs.io
 
-Digits is primarily an AI accounting/bookkeeping product, but it **does expose a real, documented public first-party API** — the **Digits Connect API**, launched in late 2025. It is free (no partner fees, usage paywalls, or marketplace lock-ins), uses OAuth 2.0 (authorization code grant), has a live developer portal at [developer.digits.com](https://developer.digits.com), cursor-based pagination, idempotent source-sync endpoints (via `external_id`), webhooks, and a published MCP server. The Connect API base URL is `https://connect.digits.com/v1`.
+Everything profiled for Digits is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/digits-com/](https://apis.io/providers/digits-com/)** — or go straight to one of the APIs or properties below.
 
-Note: `https://digits.com/openapi.json` exists but describes only marketing-site / MCP-discovery metadata (llms.txt, sitemap, `.well-known/mcp`), **not** the Connect API. See [review.yml](review.yml) for the full availability finding.
+### APIs (12)
 
-## Tags
+- [Digits MCP Server](https://apis.io/apis/digits-com/digits-com-mcp-server/) — Model Context Protocol server that lets AI clients like ChatGPT and Claude connect directly to Digits to query the ledger in natural language. Discovery is…
+- [Digits Chart of Accounts API](https://apis.io/apis/digits-com/digits-com-chart-of-accounts-api/) — Ledger categories and dimensional axes (departments, locations, projects).
+- [Digits Connections API](https://apis.io/apis/digits-com/digits-com-connections-api/) — Connected data sources feeding the ledger.
+- [Digits Financial Statements API](https://apis.io/apis/digits-com/digits-com-financial-statements-api/) — Balance Sheet, P&L, Cash Flow, Trial Balance, aging reports, and summaries.
+- [Digits Organizations API](https://apis.io/apis/digits-com/digits-com-organizations-api/) — Accounting-firm organizations, clients, entities, and employees.
+- [Digits Parties API](https://apis.io/apis/digits-com/digits-com-parties-api/) — Vendors, suppliers, customers, and other business relationships.
+- [Digits Sources API](https://apis.io/apis/digits-com/digits-com-sources-api/) — Push raw source data into the AGL for enrichment and categorization.
+- [Digits Transactions API](https://apis.io/apis/digits-com/digits-com-transactions-api/) — Read AI-categorized ledger transactions and journal entries.
+- [Digits Webhooks API](https://apis.io/apis/digits-com/digits-com-webhooks-api/) — Receive event notifications from Digits at a configured webhook endpoint; Digits POSTs a JSON event body and expects a 2xx acknowledgment…
+- [Digits Llms.txt API](https://apis.io/apis/digits-com/digits-com-llms-txt-api/) — The Llms.txt API from Digits — 1 operation(s) for llms.txt.
+- [Digits Sitemap.xml API](https://apis.io/apis/digits-com/digits-com-sitemap-xml-api/) — The Sitemap.xml API from Digits — 1 operation(s) for sitemap.xml.
+- [Digits .well Known API](https://apis.io/apis/digits-com/digits-com-well-known-api/) — The .well Known API from Digits — 2 operation(s) for .well known.
 
-- Accounting
-- Bookkeeping
-- Finance
-- General Ledger
-- AI
-- FinTech
+### Published properties
 
-## Timestamps
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- **Created:** 2026-07-01
-- **Modified:** 2026-07-01
+#### AsyncAPI (1)
 
-## APIs
+Event-driven and webhook contracts.
 
-### Digits Transactions API
+- [Digits Com Webhooks](https://apis.io/asyncapis/digits-com/digits-com-webhooks/)
 
-Read AI-categorized ledger transactions and journal entries, query entries by filter, and retrieve individual transactions from the Autonomous General Ledger.
+#### MCP servers (1)
 
-- **Human URL:** [https://developer.digits.com](https://developer.digits.com)
-- **Base URL:** `https://connect.digits.com/v1`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [Digits MCP](https://apis.io/servers/digits-com/digits-mcp/)
 
-- Transactions
-- Ledger
-- Journal Entries
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://developer.digits.com)
-- [OpenAPI](openapi/digits-com-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/digits-com.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/digits-com.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Digits Com Agentic Access](https://apis.io/agentic-access/digits-com/digits-com-agentic-access/)
 
-### Digits Source Sync API
+#### Collections (12)
 
-Push raw source data — transactions, parties, products, departments, locations, and projects — into the AGL for AI research, enrichment, and categorization. Idempotence and deduplication are handled via the `external_id` field.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://developer.digits.com](https://developer.digits.com)
-- **Base URL:** `https://connect.digits.com/v1`
+- [Digits Connect API](https://apis.io/collections/digits-com/open-digits-com/)
+- [Digits Connect Chart of Accounts API](https://apis.io/collections/digits-com/open-digits-com-chart-of-accounts-api/)
+- [Digits Connect Chart of Accounts Connections API](https://apis.io/collections/digits-com/open-digits-com-connections-api/)
+- [Digits Connect Chart of Accounts Financial Statements API](https://apis.io/collections/digits-com/open-digits-com-financial-statements-api/)
+- [Digits Llms.txt API](https://apis.io/collections/digits-com/open-digits-com-llms-txt-api/)
+- [Digits Connect Chart of Accounts Organizations API](https://apis.io/collections/digits-com/open-digits-com-organizations-api/)
+- [Digits Connect Chart of Accounts Parties API](https://apis.io/collections/digits-com/open-digits-com-parties-api/)
+- [Digits Llms.txt Sitemap.xml API](https://apis.io/collections/digits-com/open-digits-com-sitemap-xml-api/)
+- [Digits Connect Chart of Accounts Sources API](https://apis.io/collections/digits-com/open-digits-com-sources-api/)
+- [Digits Connect Chart of Accounts Transactions API](https://apis.io/collections/digits-com/open-digits-com-transactions-api/)
+- [Digits Connect Chart of Accounts Webhooks API](https://apis.io/collections/digits-com/open-digits-com-webhooks-api/)
+- [Digits Llms.txt .well Known API](https://apis.io/collections/digits-com/open-digits-com-well-known-api/)
 
-#### Tags
+#### Overlays (1)
 
-- Ingestion
-- Sync
-- Idempotency
+OpenAPI overlays, including conversational phrasing for each operation.
 
-#### Properties
+- [Digits Com Overlay](https://apis.io/overlays/digits-com/digits-com-overlay/)
 
-- [Documentation](https://developer.digits.com)
-- [OpenAPI](openapi/digits-com-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/digits-com.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+#### Security (4)
 
-### Digits Parties API
+Authentication, trust centre, and vulnerability disclosure.
 
-List and retrieve parties — the vendors, suppliers, customers, and other business relationships that Digits hydrates and enriches from transaction data.
+- [Digits Com Authentication](https://apis.io/security/digits-com/digits-com-authentication/)
+- [Digits Com Domain Security](https://apis.io/security/digits-com/digits-com-domain-security/)
+- [Digits Com Trust Center](https://apis.io/security/digits-com/digits-com-trust-center/)
+- [Digits Com Vulnerability Disclosure](https://apis.io/security/digits-com/digits-com-vulnerability-disclosure/)
 
-- **Human URL:** [https://developer.digits.com](https://developer.digits.com)
-- **Base URL:** `https://connect.digits.com/v1`
+#### OAuth scopes (1)
 
-#### Tags
+The permissions the API asks for.
 
-- Parties
-- Vendors
-- Customers
+- [Digits Com Scopes](https://apis.io/scopes/digits-com/digits-com-scopes/)
 
-#### Properties
+#### Plans and pricing (1)
 
-- [Documentation](https://developer.digits.com)
-- [OpenAPI](openapi/digits-com-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+Published plans, tiers and prices.
 
-### Digits Chart of Accounts API
+- [Digits Com Plans Pricing](https://apis.io/plans/digits-com/digits-com-plans-pricing/)
 
-List and retrieve ledger categories (chart of accounts) plus the dimensional accounting axes — departments, locations, and projects — used to classify financial data.
+#### Rate limits (1)
 
-- **Human URL:** [https://developer.digits.com](https://developer.digits.com)
-- **Base URL:** `https://connect.digits.com/v1`
+Published request limits.
 
-#### Tags
+- [Digits Com Rate Limits](https://apis.io/rate-limits/digits-com/digits-com-rate-limits/)
 
-- Chart of Accounts
-- Categories
-- Dimensions
+#### FinOps (1)
 
-#### Properties
+What the API costs to run, by operation.
 
-- [Documentation](https://developer.digits.com)
-- [OpenAPI](openapi/digits-com-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Digits Com Finops](https://apis.io/finops/digits-com/digits-com-finops/)
 
-### Digits Financial Statements API
+## Where to find this API
 
-Generate core financial statements directly from the ledger — Balance Sheet, Profit and Loss, Cash Flow, Trial Balance, A/P Aging, and A/R Aging — plus ledger summaries.
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- **Human URL:** [https://developer.digits.com](https://developer.digits.com)
-- **Base URL:** `https://connect.digits.com/v1`
-
-#### Tags
-
-- Reports
-- Financial Statements
-- Balance Sheet
-
-#### Properties
-
-- [Documentation](https://developer.digits.com)
-- [OpenAPI](openapi/digits-com-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-### Digits Connections API
-
-List and sync the connected data sources feeding the ledger, covering the 12,000+ financial-institution and payments integrations Digits ingests from.
-
-- **Human URL:** [https://developer.digits.com](https://developer.digits.com)
-- **Base URL:** `https://connect.digits.com/v1`
-
-#### Tags
-
-- Connections
-- Data Sources
-- Integrations
-
-#### Properties
-
-- [Documentation](https://developer.digits.com)
-- [OpenAPI](openapi/digits-com-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-### Digits Organizations API
-
-Manage accounting-firm organizations and their client books, entities, and employees, including bulk operations for onboarding clients at scale.
-
-- **Human URL:** [https://developer.digits.com](https://developer.digits.com)
-- **Base URL:** `https://connect.digits.com/v1`
-
-#### Tags
-
-- Organizations
-- Clients
-- Firms
-
-#### Properties
-
-- [Documentation](https://developer.digits.com)
-- [OpenAPI](openapi/digits-com-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-### Digits Webhooks API
-
-Receive event notifications from Digits at a configured webhook endpoint; Digits POSTs a JSON event body and expects a 2xx acknowledgment.
-
-- **Human URL:** [https://developer.digits.com](https://developer.digits.com)
-- **Base URL:** `https://connect.digits.com/v1`
-
-#### Tags
-
-- Webhooks
-- Events
-- Notifications
-
-#### Properties
-
-- [Documentation](https://developer.digits.com)
-
-### Digits MCP Server
-
-Model Context Protocol server that lets AI clients like ChatGPT and Claude connect directly to Digits to query the ledger in natural language. Discovery is published as an MCP Server Card at `/.well-known/mcp/server.json`.
-
-- **Human URL:** [https://developer.digits.com](https://developer.digits.com)
-- **Base URL:** `https://digits.com`
-
-#### Tags
-
-- MCP
-- AI Agents
-- Model Context Protocol
-
-#### Properties
-
-- [Documentation](https://developer.digits.com)
-- [MCP](https://digits.com/.well-known/mcp/server.json) — [Model Context Protocol](https://modelcontextprotocol.io)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/digits)
-- [LinkedIn](https://www.linkedin.com/company/digits-financial)
 - [Website](https://digits.com)
 - [Documentation](https://developer.digits.com)
-- [Plans](plans/digits-com-plans-pricing.yml)
-- [Rate Limits](rate-limits/digits-com-rate-limits.yml)
-- [Fin Ops](finops/digits-com-finops.yml)
+- [Getting started](https://developer.digits.com/docs/app-creation)
+- [API reference](https://developer.digits.com/reference/companyservice_get)
+- [Pricing](https://digits.com/pricing)
+- [Sign up](https://my.digits.com)
+- [Support](https://help.digits.com)
+- [Blog](https://digits.com/blog/rss.xml)
+- [Security](https://digits.com/security/)
+- [Compliance](https://trust.digits.com)
+- [Terms of service](https://my.digits.com/legal/terms-of-service)
+- [Privacy policy](https://my.digits.com/legal/privacy-policy)
+- [GitHub](https://github.com/digits)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 52.5** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 52.9 |
+| Contract governance | 18.2 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 48.2 |
+| Access clarity | 57.9 |
+
+**Agent readiness 35.7** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | documented (partial credit) |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 34.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/digits-com/](https://apis.io/providers/digits-com/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Digits: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/digits-com/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
